@@ -7,7 +7,7 @@
 
     if(!isset($_POST['info']))
     {
-        echo "Opps!! Algo ha pasado (estamos resolviendo este problema)";
+        echo "Lo sentimos No existen hospitales cerca.";
         return;
     }
     

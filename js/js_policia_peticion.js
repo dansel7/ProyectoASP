@@ -1,7 +1,6 @@
  
- 
- $(document).ready(function() {
-        $(".boton").click(function(event) {
+ function Police_Responsive_delegacion(){
+
         var parametros = {
                 'info' : informacion
         };
@@ -10,12 +9,12 @@
                 url:    r,
                 type:  'post',
                 beforeSend: function () {
-                        $("#informacion").html("Procesando, espere por favor...");
+                        $("#informacion-delegacion").html("Procesando, espere por favor...");
                 },
                 success:  function (response) {
-                        $("#informacion").html(response);
+                        $("#informacion-delegacion").html(response);
                 }
        });
-    });
+ }
     
- });
+

@@ -233,9 +233,18 @@
 
                     <div id="menu-4" class="contact content">
                         <div class="row">
+                            <div class="contact-form">
+                                <form action="#" method="post">
+                                            <fieldset class="col-md-4">
+                                                <input id="name" type="text" name="name" placeholder="Busqueda">
+                                            </fieldset>
+                            </div>
                             <div class="col-md-12">
                                 <div class="toggle-content text-center spacing">
-                                    <h3>Seguridad en el salvador</h3>
+                                    <h3>Delegaciones</h3>
+                                </div>
+                                <div class="toggle-content  spacing">
+                                    <h3>Delegaciones mas cercanas</h3>
                                      <div id="informacion-police">
                                     </div>
                                 </div>
@@ -246,30 +255,6 @@
                                       <div id="map-canvas-p" ></div> 
                                 </div> 
                             </div> 
-                            
-                            <div class="col-md-12">
-                                <div class="contact-form">
-                                    <div class="row">
-                                    	<form action="#" method="post">
-                                            <fieldset class="col-md-4">
-                                                <input id="name" type="text" name="name" placeholder="Name">
-                                            </fieldset>
-                                            <fieldset class="col-md-4">
-                                                <input type="email" name="email" id="email" placeholder="Email">
-                                            </fieldset>
-                                            <fieldset class="col-md-4">
-                                                <input type="text" name="subject" id="subject" placeholder="Subject">
-                                            </fieldset>
-                                            <fieldset class="col-md-12">
-                                                <textarea name="message" id="message" placeholder="Message"></textarea>
-                                            </fieldset>
-                                            <fieldset class="col-md-12">
-                                                <input type="submit" name="send" value="Send Message" id="submit" class="button">
-                                            </fieldset>
-                                        </form>
-                                    </div> <!-- /.row -->
-                                </div> <!-- /.contact-form -->
-                            </div> <!-- /.col-md-12 -->
                         </div> <!-- /.row -->
                     </div> <!-- /.contact -->
 
