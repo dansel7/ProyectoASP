@@ -40,8 +40,10 @@
             set_tipo('police');
             initialize();
        }
-       
-       function hospital_map()
+    </script>
+    
+    <script>
+        function hospital_map()
        {
            set_tipo('hospital');
            initialize();
@@ -73,7 +75,7 @@
                             <li><a class="homebutton" href="#">Home</a></li>
                             <li><a class="show-1" href="#">About</a></li>
                             <li><a class="show-2" href="#">Services</a></li>
-                            <li><a class="show-3" href="#" onclick="hospital_map();">Salud</a></li>
+                            <li><a class="show-3" href="#" onclick="hospital_map();" >Salud</a></li>
                             <li><a class="show-4" href="#" onclick="police_map();" >Seguridad</a></li>
                         </ul> <!-- /.menu -->
                         <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
@@ -210,7 +212,7 @@
                             <div class="col-md-12">
                                 <div class="toggle-content text-center spacing">
                                     <h3>Sistema de salud</h3>
-                                     <div id="informacion">
+                                     <div id="informacion-hospital">
                                     </div>
                                 </div>
                             </div> 
@@ -224,19 +226,7 @@
                     </div> 
                     <div id="menu-4" class="contact content">
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="toggle-content text-center spacing">
-                                    <h3>Seguridad en el salvador</h3>
-                                     <div id="informacion">
-                                    </div>
-                                </div>
-                            </div> 
-                            
-                            <div class="col-md-12">
-                                <div class="google-map">
-                                     <div id="map-canvas" ></div>
-                                </div> 
-                            </div> 
+                          
                             
                             <div class="col-md-12">
                                 <div class="contact-form">
