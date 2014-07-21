@@ -23,7 +23,12 @@
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     
     <style>
-        #map-canvas {
+        #map-canvas-p { 
+        height: 100%;
+        margin: 0px;
+        padding: 100px
+      }
+       #map-canvas-h {
         height: 100%;
         margin: 0px;
         padding: 100px
@@ -38,7 +43,7 @@
       <script>
       function police_map(){
             set_tipo('police');
-            initialize();
+            get_localizacion();
        }
     </script>
     
@@ -46,7 +51,7 @@
         function hospital_map()
        {
            set_tipo('hospital');
-           initialize();
+           get_localizacion();
        }
     </script>
     
@@ -207,7 +212,7 @@
                         </div> <!-- /.row -->
                     </div> <!-- /.services -->
 
-                    <div id="menu-3" class="contact content">
+                      <div id="menu-3" class="services content">
                          <div class="row">
                             <div class="col-md-12">
                                 <div class="toggle-content text-center spacing">
@@ -219,15 +224,29 @@
                             
                             <div class="col-md-12">
                                 <div class="google-map">
-                                     <div id="map-canvas" ></div>
+                                    <div id="map-canvas-h" ></div> 
                                 </div> 
                             </div> 
+
                     </div> 
                     </div> 
                     
+
                     <div id="menu-4" class="contact content">
                         <div class="row">
-                          
+                            <div class="col-md-12">
+                                <div class="toggle-content text-center spacing">
+                                    <h3>Seguridad en el salvador</h3>
+                                     <div id="informacion-police">
+                                    </div>
+                                </div>
+                            </div> 
+                            
+                            <div class="col-md-12">
+                                <div class="google-map">
+                                      <div id="map-canvas-p" ></div> 
+                                </div> 
+                            </div> 
                             
                             <div class="col-md-12">
                                 <div class="contact-form">

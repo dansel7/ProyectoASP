@@ -139,11 +139,25 @@ function mostrar_coordenadas(position) {
   latitud = position.coords.latitude;
   longitud = position.coords.longitude;
   var pyrmont = new google.maps.LatLng(latitud,longitud);
+  
+ 
+  switch(window.tipo)
+    {
+        case 'police':
+             map = new google.maps.Map(document.getElementById('map-canvas-p'), {
+             center: pyrmont,
+             zoom: 15
+            });    
+            break;
+        case 'hospital':
+            map = new google.maps.Map(document.getElementById('map-canvas-h'), {
+            center: pyrmont,
+            zoom: 15
+            });
+            break;
+    }
 
-  map = new google.maps.Map( document.getElementById('map-canvas'), {
-    center: pyrmont,
-    zoom: 15
-  });
+ 
   
   //keyword: 'best view' para ver los mejores segun google
   var request = {
@@ -184,17 +198,20 @@ function get_informacion(objeto)
              object__[i]= JSON.stringify(objeto[i]);
             //document.getElementById('informacion').innerHTML+=JSON.stringify(objeto[i]);
         }
+    var estatus =0;
     switch(window.tipo)
     {
         case 'police':
+            estatus=0;
             window.ruta=window.rutas[0];
             break;
         case 'hospital':
+            estatus=1;
             window.ruta=window.rutas[1];
             break;
     }
     
-    realizaProceso(object__ , window.ruta);
+    realizaProceso(object__ , window.ruta , estatus);
 }
 
 function get_informacion_jsoncode()
@@ -240,7 +257,8 @@ function createMarker(place) {
 }
 
   
-   function realizaProceso(informacion , r){
+   function realizaProceso(informacion , r , estatus){
+        
         
         var parametros = {
                 'info' : informacion
@@ -250,10 +268,18 @@ function createMarker(place) {
                 url:    r,
                 type:  'post',
                 beforeSend: function () {
-                        $("#informacion").html("Procesando, espere por favor...");
+                    if(estatus==0){
+                        $("#informacion-police").html("Procesando, espere por favor...");
+                    }
+                    else if (estatus==1)
+                         $("#informacion-hospital").html("Procesando, espere por favor...");
+                        
                 },
                 success:  function (response) {
-                        $("#informacion").html(response);
+                     if(estatus==0)
+                        $("#informacion-police").html(response);
+                    else if (estatus==1)
+                        $("#informacion-hospital").html(response);
                 }
        });
 }
