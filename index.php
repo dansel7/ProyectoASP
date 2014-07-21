@@ -221,7 +221,7 @@
                                 </div> 
                             </div> 
                     </div> 
-
+                    </div> 
                     <div id="menu-4" class="contact content">
                         <div class="row">
                             <div class="col-md-12">
