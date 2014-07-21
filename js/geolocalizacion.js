@@ -113,8 +113,9 @@ var map;
 var infowindow;
 var latitud;
 var longitud;
-var tipo = 'hospital';
+var tipo = '';
 var ruta = '';
+var marker=[];
 
 function set_tipo(t)
 {
@@ -160,6 +161,8 @@ function mostrar_coordenadas(position) {
  
   
   //keyword: 'best view' para ver los mejores segun google
+  
+
   var request = {
   
     location: pyrmont,
@@ -175,28 +178,31 @@ function mostrar_coordenadas(position) {
 
 
 function initialize() {
+  
   get_localizacion();
 }
 
 var objeto = [];
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    for (var i = 0; i < results.length; i++) {
+     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
       objeto[i] = results[i];
     }
   }
+
   get_informacion(objeto);
 }
 
 var object__ = new Array();
 function get_informacion(objeto)
 {
-     var string_jason = '';
+     var string_jason='';
+     object__ = new Array();
      for (var i = 0; i < objeto.length; i++){
              string_jason +=JSON.stringify(objeto[i]);
              object__[i]= JSON.stringify(objeto[i]);
-            //document.getElementById('informacion').innerHTML+=JSON.stringify(objeto[i]);
+            //document.getElementById('informacion-police').innerHTML+=JSON.stringify(objeto[i]);
         }
     var estatus =0;
     switch(window.tipo)
@@ -210,7 +216,7 @@ function get_informacion(objeto)
             window.ruta=window.rutas[1];
             break;
     }
-    
+ 
     realizaProceso(object__ , window.ruta , estatus);
 }
 
@@ -236,7 +242,6 @@ function createMarker(place) {
             i=2;
             break;
        default:
-           i=0;
            break;
    }
 
@@ -244,7 +249,7 @@ function createMarker(place) {
     new google.maps.Size(100,50)
    ); 
     
-   var marker = new google.maps.Marker({
+   window.marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location,
         icon:imagen
@@ -268,18 +273,22 @@ function createMarker(place) {
                 url:    r,
                 type:  'post',
                 beforeSend: function () {
-                    if(estatus==0){
+                    if(estatus===0){
                         $("#informacion-police").html("Procesando, espere por favor...");
                     }
-                    else if (estatus==1)
+                    else if (estatus===1)
                          $("#informacion-hospital").html("Procesando, espere por favor...");
                         
                 },
                 success:  function (response) {
-                     if(estatus==0)
+                     if(estatus===0){
+                        $("#informacion-police").html('');
                         $("#informacion-police").html(response);
-                    else if (estatus==1)
+                    }
+                    else if (estatus===1){
+                         $("#informacion-hospital").html('');
                         $("#informacion-hospital").html(response);
+                    }
                 }
        });
 }
