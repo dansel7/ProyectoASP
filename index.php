@@ -39,7 +39,7 @@
     <script type="text/javascript" src="js/ajax.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
     <script src="js/jquery-1.8.2.min.js"></script>
-
+    
       <script>
        function hospital_map()
        {
@@ -214,10 +214,11 @@
                       <div id="menu-3" class="services content">
                          <div class="row">
                             <div class="col-md-12">
-                                <div class="toggle-content text-center spacing">
+                                <div class="toggle-content spacing">
                                     <h3>Sistema de salud</h3>
                                      <div id="informacion-hospital">
                                     </div>
+                              
                                 </div>
                             </div> 
                             

@@ -1,18 +1,35 @@
 <?php
-
 /**
 * script polices responsive
 */  
-    include_once 'tools.php';
+   
 
+     require_once 'PHPPaging.lib.php';
+     require_once 'tools.php';
+     
+     session_start();
+     
+     $filtro= array() ;
+     $valor = array();
+     
     if(!isset($_POST['info']))
     {
-        echo "Lo sentimos No existen hospitales cerca.";
-        return;
+        if(isset($_REQUEST['estado']))
+        {
+            $filtro = $_SESSION['filtrar'];
+        }
+        else{
+            echo "Lo sentimos No existen hospitales cerca.";
+            return;
+        }
+    }
+    else
+    {
+         $valor = $_POST['info'];
     }
     
-    $valor = $_POST['info'];
-    $filtro= array() ;
+    
+    $paging = new PHPPaging();
     
     $i=0;
     foreach($valor as $key=>$value)
@@ -41,6 +58,30 @@
         $i++;
     }
     
+    $_SESSION['filtrar'] = $filtro;
+    $paging->linkAgregar('&estado=1');
+    $paging->agregarArray($filtro);
+    $paging->ejecutar(); 
+    
+    
+    /*foreach($paging->fetchTodo() as $key=>$value)
+    {
+        foreach ($value as $k=>$val)
+        {
+            if($k=='icono')
+            {
+                echo "<p><img width='30' heigth='30' src='" . $val . "'/>";           
+            }
+            else{
+                if($k=='nombre')
+                    echo "<strong>". $val . "</strong>";
+                else
+                    echo "<br>". $val . "<br></p>";
+            }
+        }
+    }
+    echo 'Paginas '.$paging->fetchNavegacion();*/
+            
     foreach($filtro as $key=>$value)
     {
         foreach ($value as $k=>$val)

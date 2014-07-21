@@ -13,7 +13,7 @@ $paging = new PHPPaging($con->GetConexion());
       
 
         $relativo = $paging->agregarConsulta("select * from fuentebdd");
-		echo $relativo;
+		//echo $relativo;
         
         // Ejecutamos la paginaci�n
         $paging->ejecutar();  
