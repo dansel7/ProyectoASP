@@ -12,7 +12,7 @@ class Autorizacion
         "delegacion"=>'http://api.gobiernoabierto.gob.sv/delegations',
         "delegacion_info"=> 'http://api.gobiernoabierto.gob.sv/delegation_infos',
         "comunitario"=>'http://api.gobiernoabierto.gob.sv/food_establishment_health_communities',
-        "salud"=>'http://api.gobiernoabierto.gob.sv/health_establishment_types',
+        "salud"=>'http://api.gobiernoabierto.gob.sv/health_establishments',
         "salud_medicina"=>'http://api.gobiernoabierto.gob.sv/medicine_categories',
         "salud_establecimiento"=>'http://api.gobiernoabierto.gob.sv/health_establishments',
         "albergue"=>'http://api.gobiernoabierto.gob.sv/health_establishments',
@@ -95,7 +95,7 @@ class Autorizacion
     
     /**
      * @param array $array array de registros
-     * @param string $attr atributo o llave que acompaña el registro a buscar
+     * @param string $attr atributo o llave que acompaï¿½a el registro a buscar
      * @param string $val el valor a buscar dentro del registro
      * @todo obtiene el valor de la llave si en caso existe en dado caso se retornara null
      */
