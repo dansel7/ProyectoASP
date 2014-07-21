@@ -128,15 +128,17 @@ function set_request()
 }
 
 function get_localizacion() {
+    
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(mostrar_coordenadas);
     } else {
+        
     }
 }
 
 function mostrar_coordenadas(position) {
 
-    
+   
   latitud = position.coords.latitude;
   longitud = position.coords.longitude;
   var pyrmont = new google.maps.LatLng(latitud,longitud);
@@ -145,15 +147,15 @@ function mostrar_coordenadas(position) {
   switch(window.tipo)
     {
         case 'police':
-             map = new google.maps.Map(document.getElementById('map-canvas-p'), {
-             center: pyrmont,
-             zoom: 15
+                map = new google.maps.Map(document.getElementById('map-canvas-p'), {
+                center: pyrmont,
+                zoom: 15
             });    
             break;
         case 'hospital':
-            map = new google.maps.Map(document.getElementById('map-canvas-h'), {
-            center: pyrmont,
-            zoom: 15
+                 map = new google.maps.Map(document.getElementById('map-canvas-h'), {
+                center: pyrmont,
+                zoom: 15
             });
             break;
     }
@@ -161,7 +163,6 @@ function mostrar_coordenadas(position) {
  
   
   //keyword: 'best view' para ver los mejores segun google
-  
 
   var request = {
   
@@ -171,20 +172,24 @@ function mostrar_coordenadas(position) {
     
   };
   
+
+  
   infowindow = new google.maps.InfoWindow();
+   
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
+ 
 }
 
 
 function initialize() {
-  
   get_localizacion();
 }
 
+
 var objeto = [];
 function callback(results, status) {
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
      for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
       objeto[i] = results[i];
@@ -193,7 +198,7 @@ function callback(results, status) {
      //INICIALIZA EL ARREGLO DE INFORMACION
      objeto = []; 
   }
-
+  
   get_informacion(objeto);
 }
 
@@ -207,6 +212,7 @@ function get_informacion(objeto)
              object__[i]= JSON.stringify(objeto[i]);
             //document.getElementById('informacion-police').innerHTML+=JSON.stringify(objeto[i]);
         }
+     
     var estatus =0;
     switch(window.tipo)
     {
@@ -231,7 +237,7 @@ function get_informacion_jsoncode()
 
 //creacion del canvas o lienzo tambien edicion de la imagen o icono
 function createMarker(place) {
-    
+   
    var i=0;
    switch(tipo)
    {
@@ -267,7 +273,7 @@ function createMarker(place) {
   
    function realizaProceso(informacion , r , estatus){
         
-        
+        alert(informacion);
         var parametros = {
                 'info' : informacion
         };

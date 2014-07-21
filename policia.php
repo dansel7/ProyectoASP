@@ -2,7 +2,7 @@
 
 
 
-require_once 'curl_access.php';
+/*require_once 'curl_access.php';
 
 $auth = new autorizacion("delegacion_info");
 
@@ -20,7 +20,7 @@ echo "</br ></br ></br >busqueda = " . $busqueda;
 
 echo "</br ></br ></br >total de registros = " . $auth->Get_CountRegistros();
 //print_r($jaso_encode);
-echo "</br ></br ></br >";
+echo "</br ></br ></br >";*/
 ?>
 
 <html>
@@ -42,16 +42,16 @@ echo "</br ></br ></br >";
 
     
     <script>
-    set_tipo('hospital');
+    set_tipo('police');
     initialize();
-  
+
 </script>
 </head>
 <body>
-    <div id="informacion">
+    <div id="informacion-police">
        
     </div>
-    <div id="map-canvas" ></div>
+    <div id="map-canvas-p" ></div>
 </body>
 </html>
 

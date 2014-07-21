@@ -9,18 +9,50 @@
 
     if(!isset($_POST['info']))
     {
-        echo "Opps!! Algo ha pasado (estamos resolviendo este problema)";
+        echo "parece que no tiene estaciones de policia cerca";
         return;
     }
     
     $valor = $_POST['info'];
     $filtro= array() ;
-    
     $i=0;
+    
+   /* foreach($valor as $key_=>$value_)
+    {
+        $decode = objectToArray(json_decode($value_ , true));
+         foreach($decode as $k=>$v)
+        {
+            if($k=='types')
+            {
+                
+                foreach ($v as $kk => $vv) {
+                   
+                   if ($kk == 0) {
+                        if ($vv == 'police') {
+                            $is_police = true;
+                            break;
+                        }
+                        else
+                        {
+                            $is_police = false;
+                        }
+                   }
+               }
+               
+            }
+            if($is_police) break;
+        }
+    }*/
+    
+    
     foreach($valor as $key=>$value)
     {
         $decode = objectToArray(json_decode($value , true));
-        //print_r($decode);
+       /* echo "<PRE>";
+         print_r($decode);
+        echo "</PRE>";*/
+        $police = $decode['types'][0];
+        if($police == 'police'){
         foreach($decode as $k=>$v)
         {
             if(!is_array($v)){
@@ -39,6 +71,8 @@
                         break;
                 }
             }
+            
+        }
         }
         $i++;
     }
