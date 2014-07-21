@@ -41,18 +41,17 @@
     <script src="js/jquery-1.8.2.min.js"></script>
 
       <script>
-      function police_map(){
-            set_tipo('police');
-            get_localizacion();
-       }
-    </script>
-    
-    <script>
-        function hospital_map()
+       function hospital_map()
        {
            set_tipo('hospital');
-           get_localizacion();
+           initialize();
        }
+      function police_map(){
+            set_tipo('police');
+            initialize();
+       }
+
+       
     </script>
     
 </head>
@@ -81,7 +80,7 @@
                             <li><a class="show-1" href="#">About</a></li>
                             <li><a class="show-2" href="#">Services</a></li>
                             <li><a class="show-3" href="#" onclick="hospital_map();" >Salud</a></li>
-                            <li><a class="show-4" href="#" onclick="police_map();" >Seguridad</a></li>
+                            <li><a class="show-4" href="#" onclick="police_map();"  >Seguridad</a></li>
                         </ul> <!-- /.menu -->
                         <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
                     </div> <!-- /.menu-wrapper -->
