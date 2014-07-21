@@ -185,13 +185,17 @@ function callback(results, status) {
       createMarker(results[i]);
       objeto[i] = results[i];
     }
+  }else{
+     //INICIALIZA EL ARREGLO DE INFORMACION
+     objeto = []; 
   }
   get_informacion(objeto);
 }
 
 var object__ = new Array();
 function get_informacion(objeto)
-{
+{   //INICIALIZA EL ARREGLO DE INFORMACION
+    if(objeto.length==0) object__ = new Array();
      var string_jason = '';
      for (var i = 0; i < objeto.length; i++){
              string_jason +=JSON.stringify(objeto[i]);
