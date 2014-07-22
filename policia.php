@@ -3,7 +3,7 @@
 
 require_once 'curl_access.php';
 
-$auth = new autorizacion("medicina_categorias");
+$auth = new autorizacion("medicina");
 
 $auth->Set_Filtro('?per_page=100&page=1');
 
@@ -24,7 +24,7 @@ echo "</br ></br ></br >total de registros = " . $auth->Get_CountRegistros();
 echo "</br ></br ></br >";
 ?>
 
-<html>
+<!-- / <html>
 <head>
     <title>API de Google Maps - Lo b�sico</title>
     <meta charset="utf-8">
@@ -53,6 +53,54 @@ echo "</br ></br ></br >";
        
     </div>
     <div id="map-canvas-p" ></div>
+</body>
+</html>-->
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Basic CRUD Application - jQuery EasyUI CRUD Demo</title>
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/demo/demo.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+     <script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+</head>
+<body>
+
+
+    <table id="dg" title="Categoria" class="easyui-datagrid" style="width:700px;height:250px"
+            url="medicina_responsive.php"
+            toolbar="#toolbar" pagination="true"
+            rownumbers="true" fitColumns="true" singleSelect="true">
+        <thead>
+            <tr>
+                <th field="id" width="50">Codigo</th>
+                <th field="name" width="50">Nombre</th>
+            </tr>
+        </thead>
+    </table>
+    <style type="text/css">
+        #fm{
+            margin:0;
+            padding:10px 30px;
+        }
+        .ftitle{
+            font-size:14px;
+            font-weight:bold;
+            padding:5px 0;
+            margin-bottom:10px;
+            border-bottom:1px solid #ccc;
+        }
+        .fitem{
+            margin-bottom:5px;
+        }
+        .fitem label{
+            display:inline-block;
+            width:80px;
+        }
+    </style>
 </body>
 </html>
 

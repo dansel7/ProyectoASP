@@ -19,12 +19,14 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/templatemo_misc.css">
     <link rel="stylesheet" href="css/templatemo_style.css">
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
-    <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
-  
-
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+     
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+    <script type="text/javascript" src="js/geolocalizacion.js"></script>
+    <script type="text/javascript" src="js/ajax.js"></script>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/jqueryfunciones.js"></script>
+    
     
     <style>
         #map-canvas-p { 
@@ -39,33 +41,7 @@
       }
     </style>
     
-    
-    <style type="text/css">
-        #fm{
-            margin:0;
-            padding:10px 30px;
-        }
-        .ftitle{
-            font-size:14px;
-            font-weight:bold;
-            padding:5px 0;
-            margin-bottom:10px;
-            border-bottom:1px solid #ccc;
-        }
-        .fitem{
-            margin-bottom:5px;
-        }
-        .fitem label{
-            display:inline-block;
-            width:80px;
-        }
-    </style>
-    
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-    <script type="text/javascript" src="js/geolocalizacion.js"></script>
-    <script type="text/javascript" src="js/ajax.js"></script>
-    <script src="js/jquery-1.8.2.min.js"></script>
-    <script src="js/jqueryfunciones.js"></script>
+   
     
       <script>
        function hospital_map()
