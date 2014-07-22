@@ -21,6 +21,7 @@ class Autorizacion
         "medicina"=>'http://api.gobiernoabierto.gob.sv/medicines',
         "product_probes"=>'http://api.gobiernoabierto.gob.sv/product_probes',
         "products"=>'http://api.gobiernoabierto.gob.sv/products'
+        
     );
     
 
@@ -69,7 +70,18 @@ class Autorizacion
         $this->load($extP);
 		
     }
-    
+     /**
+     * @name $PARAMETRO 
+     * @todo establece un nuevo parametro de busqueda a la direccion curl 
+     * @example $auth = new autorizacion("products");
+                $auth->Get_Busqueda('arroz');
+     */
+     public function Get_Busqueda($PARAMETRO)
+    {
+        $extP =$this->URL[$this->ID] .'?&q[name_cont_any]='.$PARAMETRO;
+        $this->load($extP);
+		
+    }
     
     /**
      * @todo Obtiene los registros de forma nativa JSON 
