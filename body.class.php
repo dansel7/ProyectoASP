@@ -54,7 +54,9 @@ class body
     {
         
         $comilla ="'";
-        $pie = '<script src="js/vendor/jquery-1.10.1.min.js"></script>
+        $pie = '
+            </div></div></div>
+<script src="js/vendor/jquery-1.10.1.min.js"></script>
                 <script>window.jQuery || document.write(' . $comilla . '<script src="js/vendor/jquery-1.10.1.min.js"><\/script>' .$comilla .')</script>
                 <script src="js/jquery.easing-1.3.js"></script>
                 <script src="js/bootstrap.js"></script>
@@ -124,7 +126,7 @@ class body
                 </div> <!-- /.sidebar-menu -->
             </div> <!-- /.col-md-4 -->
              <div class="col-md-8 col-sm-12">
-          
+                <div class="toggle-content" id="tab1">
                 
              '
                 ;

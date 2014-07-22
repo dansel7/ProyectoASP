@@ -68,7 +68,7 @@
     $paging->agregarArray($filtro);
     $paging->ejecutar(); 
     
-    echo '<div class="toggle-content" id="tab1">';
+ 
     foreach($paging->fetchTodo() as $key=>$value)
     {
         foreach ($value as $k=>$val)
@@ -85,8 +85,8 @@
             }
         }
     }
+    echo '<br>';
     echo 'Paginas <b>'.$paging->fetchNavegacion() . '</b>';
-    echo '</div></div></div>';
     echo $body->get_feet();    
     
    /* foreach($filtro as $key=>$value)
