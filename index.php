@@ -215,10 +215,16 @@
                          <div class="row">
                             <div class="col-md-12">
                                 <div class="toggle-content spacing">
+                                    <h3>Medicamentos</h3>
+                                     <div id="informacion-medicamentos">
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-md-12">
+                                <div class="toggle-content spacing">
                                     <h3>Estableciomientos de salud mas cercanos</h3>
                                      <div id="informacion-hospital">
                                     </div>
-                              
                                 </div>
                             </div> 
                             
