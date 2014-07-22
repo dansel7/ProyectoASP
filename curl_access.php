@@ -18,6 +18,8 @@ class Autorizacion
         "albergue"=>'http://api.gobiernoabierto.gob.sv/health_establishments',
         "hidrocarburos"=>'http://api.gobiernoabierto.gob.sv/hydro_prices',
         "hidrocarburos_referencia"=>'http://api.gobiernoabierto.gob.sv/hydro_references',
+        "product_probes"=>'http://api.gobiernoabierto.gob.sv/product_probes',
+        "products"=>'http://api.gobiernoabierto.gob.sv/products'
     );
     
 

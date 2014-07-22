@@ -3,7 +3,7 @@
 
 require_once 'curl_access.php';
 
-$auth = new autorizacion("delegacion_info");
+$auth = new autorizacion("products");
 
 $auth->Set_Filtro('?per_page=100&page=18');
 

@@ -167,7 +167,7 @@ function mostrar_coordenadas(position) {
   var request = {
   
     location: pyrmont,
-    radius: 500,
+    radius: 1000,
     types: [tipo]
     
   };
