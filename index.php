@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="css/templatemo_misc.css">
     <link rel="stylesheet" href="css/templatemo_style.css">
 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+  
+
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     
     <style>
@@ -34,6 +38,29 @@
         padding: 100px
       }
     </style>
+    
+    
+    <style type="text/css">
+        #fm{
+            margin:0;
+            padding:10px 30px;
+        }
+        .ftitle{
+            font-size:14px;
+            font-weight:bold;
+            padding:5px 0;
+            margin-bottom:10px;
+            border-bottom:1px solid #ccc;
+        }
+        .fitem{
+            margin-bottom:5px;
+        }
+        .fitem label{
+            display:inline-block;
+            width:80px;
+        }
+    </style>
+    
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     <script type="text/javascript" src="js/geolocalizacion.js"></script>
     <script type="text/javascript" src="js/ajax.js"></script>
@@ -53,41 +80,7 @@
 
        
     </script>
-    
-    <script>
-     
-     //TODO SCRIPT QUE INICIARA POR MEDIO DE JQUERY POR FAVOR COLOCAR ACA
-        
-        $(document).ready(function() {    
-      
-     //PAGINACION DE MEDICAMENTOS
-        $('.paginate').live('click', function(){
-
-        $('#informacion-medicamentos').html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');
-
-        var page = $(this).attr('data');        
-        var dataString = 'page='+page;
-
-        $.ajax({
-                type: "GET",
-                url: "medicina_responsive.php",
-                data: dataString,
-                success: function(data) {
-                $('#informacion-medicamentos').fadeIn(1000).html(data);
-            }
-           });
-        });   
-         
-        //OBTIENE LA SELECCION Y LUEGO DE LA SELECCION ENVIA LOS DATOS EN AJAX 
-        $("#medicina_select").change(function () {
-            alert();
-             $( "#informacion-medicamentos" ).html( $("#medicina_select").text() );
-        });
-        
-    });    
-        
-        
-    </script>
+  
     
 </head>
 <body>
@@ -265,7 +258,6 @@
                                     <h3>Medicamentos</h3>
                                      <div id="informacion-medicamentos">
                                          <h3><img src="images/medicina.png" width="100" height="100" />Favor Seleccione una categoria</h3>
-                                         <?php //require('medicina_responsive.php'); ?>
                                     </div>
                                 </div>
                             </div> 
@@ -273,6 +265,7 @@
                                 <div class="toggle-content spacing">
                                     <h3>Estableciomientos de salud mas cercanos</h3>
                                      <div id="informacion-hospital">
+                                         
                                     </div>
                                 </div>
                             </div> 

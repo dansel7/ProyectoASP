@@ -1,30 +1,22 @@
 <?php
-    echo "probando";
-    
-   /* $query_num_services =  mysql_query("SELECT * FROM services WHERE status=1", $conexion);
-    $num_total_registros = mysql_num_rows($query_num_services);
 
-    //Si hay registros
-    if ($num_total_registros > 0) {
-    //numero de registros por página
-    $rowsPerPage = 3;
 
-    //por defecto mostramos la página 1
-    $pageNum = 1;
+   include "curl_access.php";
+   $auth = new autorizacion("products");
 
-    // si $_GET['page'] esta definido, usamos este número de página
-    if(isset($_GET['page'])) {
-        sleep(1);
-        $pageNum = $_GET['page'];
-    }
+  //$auth->Set_Filtro('?per_page=100&page=1');
+    $valor=isset($_GET['kw'])?$_GET['kw']:"arroz";
 
-    //contando el desplazamiento
-    $offset = ($pageNum - 1) * $rowsPerPage;
-    $total_paginas = ceil($num_total_registros / $rowsPerPage);
+    $auth->Get_AllBusqueda($valor , 'name');
 
-    $query_services = mysql_query("SELECT service_id, title, description, rating FROM services WHERE status=1 ORDER BY date_added DESC LIMIT $offset, $rowsPerPage", $conexion);
-    while ($row_services = mysql_fetch_array($query_services)) {
-       
-    }*/
-    
+
+//$auth->Set_Filtro('?lt=id&gt=3');
+$jason_decode = $auth->Get_Respuesta_JasonDecode(true); 
+$jason_encode = $auth->Get_Respuesta_Jason();
+
+/*echo "<PRE>";
+print_r($jason_decode);
+echo "</PRE>";*/
+
+echo $jason_encode;
 ?>
