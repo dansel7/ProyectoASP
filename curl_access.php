@@ -83,6 +83,19 @@ class Autorizacion
 		
     }
     
+      /**
+     * @name $PARAMETRO 
+     * @name $CATEGORIA 
+     * @todo establece un nuevo parametro de busqueda a la direccion curl 
+     * @example $auth = new autorizacion("products");
+                $auth->Get_Busqueda('arroz' , 'id');
+     */
+    public function Get_AllBusqueda($PARAMETRO , $CATEGORIA)
+    {
+        $extP =$this->URL[$this->ID] .'?&q[' .$CATEGORIA. '_cont_any]='.$PARAMETRO;
+        $this->load($extP);
+    }
+    
     /**
      * @todo Obtiene los registros de forma nativa JSON 
      */
