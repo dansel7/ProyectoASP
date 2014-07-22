@@ -8,6 +8,7 @@
 
 html,
 input,
+select,
 textarea {
     color: #222;
 }
@@ -64,18 +65,6 @@ textarea {
 .spacing {
 	margin-bottom: 40px;
 }
-
-.select {
-  position: absolute;
-  width: 158px;
-  height: 21px;
-  padding: 0 24px 0 8px;
-  color: #fff;
-  font: 12px/21px arial,sans-serif;
-  background-color: #7CFAA4 ;
-  overflow: hidden;
-}
-
 
 /* ==========================================================================
    Helper classes
