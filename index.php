@@ -37,7 +37,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     <script type="text/javascript" src="js/geolocalizacion.js"></script>
     <script type="text/javascript" src="js/ajax.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
     <script src="js/jquery-1.8.2.min.js"></script>
     <script src="js/jqueryfunciones.js"></script>
     
@@ -53,6 +52,41 @@
        }
 
        
+    </script>
+    
+    <script>
+     
+     //TODO SCRIPT QUE INICIARA POR MEDIO DE JQUERY POR FAVOR COLOCAR ACA
+        
+        $(document).ready(function() {    
+      
+     //PAGINACION DE MEDICAMENTOS
+        $('.paginate').live('click', function(){
+
+        $('#informacion-medicamentos').html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');
+
+        var page = $(this).attr('data');        
+        var dataString = 'page='+page;
+
+        $.ajax({
+                type: "GET",
+                url: "medicina_responsive.php",
+                data: dataString,
+                success: function(data) {
+                $('#informacion-medicamentos').fadeIn(1000).html(data);
+            }
+           });
+        });   
+         
+        //OBTIENE LA SELECCION Y LUEGO DE LA SELECCION ENVIA LOS DATOS EN AJAX 
+        $("#medicina_select").change(function () {
+            alert();
+             $( "#informacion-medicamentos" ).html( $("#medicina_select").text() );
+        });
+        
+    });    
+        
+        
     </script>
     
 </head>
@@ -219,7 +253,7 @@
                                 <div class="row">
                                 <form action="#" method="post">
                                 <fieldset class="col-md-4">
-                                    <select id="medicina_select">
+                                    <select id="medicina_select" name="medicina_select" >
                                         <?php
                                             require_once 'medicina_selector.php';
                                         ?>
