@@ -230,7 +230,7 @@
                                 <div class="toggle-content spacing">
                                     <h3>Medicamentos</h3>
                                      <div id="informacion-medicamentos">
-                                    
+                                         <h3><img src="images/medicina.png" width="100" height="100" />Favor Seleccione una categoria</h3>
                                          <?php //require('medicina_responsive.php'); ?>
                                     </div>
                                 </div>
