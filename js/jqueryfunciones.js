@@ -6,10 +6,11 @@
         //PAGINACION DE MEDICAMENTOS
         //OBTIENE LA SELECCION Y LUEGO DE LA SELECCION ENVIA LOS DATOS EN AJAX 
       
-        $("#medicina_select").change(function () {
+       /* $("#medicina_select").change(function () {
+            
             var categoria = $("#medicina_select").val();
             get_medicina(categoria);
-        });
+        });*/
         
     }); 
     

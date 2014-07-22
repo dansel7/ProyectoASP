@@ -66,6 +66,8 @@ echo "</br ></br ></br >";
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
     <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
      <script type="text/javascript" charset="utf-8" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+     <link rel="stylesheet" type="text/css" href="css/style1.css" />
+     <script src="js/modernizr.custom.63321.js"></script>
 </head>
 <body>
 
@@ -100,7 +102,38 @@ echo "</br ></br ></br >";
             display:inline-block;
             width:80px;
         }
+       
     </style>
+    <section class="main clearfix">
+				<div class="fleft">
+					<select id="cd-dropdown" name="cd-dropdown" class="cd-select">
+						<option value="-1" selected>Choose your favorite animal</option>
+						<option value="1" class="icon-monkey">Monkey</option>
+						<option value="2" class="icon-bear">Bear</option>
+						<option value="3" class="icon-squirrel">Squirrel</option>
+						<option value="4" class="icon-elephant">Elephant</option>
+					</select>
+				</div>
+			</section>
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.dropdown.js"></script>
+		<script type="text/javascript">
+			
+			$( function() {
+				
+				$( '#cd-dropdown' ).dropdown( {
+					gutter : 5,
+                                        stack: false,
+                                        delay: 100,
+                                        slidingIn: 100,
+                                        onOptionSelect: function(e) {
+                                            $(".animalDiv").hide();
+                                        }
+				} );
+
+			});
+
+		</script>
 </body>
 </html>
 
