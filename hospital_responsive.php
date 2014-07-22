@@ -1,22 +1,29 @@
 <?php
 /**
-* script polices responsive
+* SCRIPT HOSPITAL RESPONSIVE OBTIENE LOS DATOS DE LOS HOSPITALES MAS CERCANOS
+ * Y SI LOS HOSPITALES MAS CERCANOS SON DEMACIADOS ENTONCES 
+ * ESTE MISMO SCRIPT SE ENCARGARA EN PAGINAR LOS HOSPITALES DE 3 EN 3 
 */  
    
-
+  
      require_once 'PHPPaging.lib.php';
      require_once 'tools.php';
+     require 'body.class.php';
      
      session_start();
      
      $filtro= array() ;
      $valor = array();
+     $body = new body();
+     echo $body->get_head();
+   
      
     if(!isset($_POST['info']))
     {
         if(isset($_REQUEST['estado']))
         {
             $filtro = $_SESSION['filtrar'];
+              echo $body->get_menu();
         }
         else{
             echo "Lo sentimos No existen hospitales cerca.";
@@ -63,8 +70,8 @@
     $paging->agregarArray($filtro);
     $paging->ejecutar(); 
     
-    
-    /*foreach($paging->fetchTodo() as $key=>$value)
+ 
+    foreach($paging->fetchTodo() as $key=>$value)
     {
         foreach ($value as $k=>$val)
         {
@@ -80,9 +87,11 @@
             }
         }
     }
-    echo 'Paginas '.$paging->fetchNavegacion();*/
-            
-    foreach($filtro as $key=>$value)
+    echo '<br>';
+    echo 'Paginas <b>'.$paging->fetchNavegacion() . '</b>';
+    echo $body->get_feet();    
+    
+   /* foreach($filtro as $key=>$value)
     {
         foreach ($value as $k=>$val)
         {
@@ -98,7 +107,7 @@
                  
             }
         }
-    }
+    }*/
     /*  
         <p>Donec mattis enim sit amet nisl faucibus, eu pulvinar nibh facilisis. Aliquam erat volutpat. Vivamus tempus, nisi varius imperdiet molestie, velit mi feugiat felis, sit amet fringilla mi massa sit amet arcu. Mauris dictum nisl id felis lacinia congue. Aliquam lectus nisi, sodales in lacinia quis, lobortis vel sem.
         <br><br><strong>Address:</strong> 123 Thamine Street, Digital Estate, Yangon 10620, Myanmar

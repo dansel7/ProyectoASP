@@ -19,8 +19,17 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/templatemo_misc.css">
     <link rel="stylesheet" href="css/templatemo_style.css">
-
+    <link rel="stylesheet" type="text/css" href="css/style1.css" />
+    
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+     
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+    <script type="text/javascript" src="js/geolocalizacion.js"></script>
+    <script type="text/javascript" src="js/ajax.js"></script>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/jqueryfunciones.js"></script>
+    
+    <script src="js/modernizr.custom.63321.js"></script>
     
     <style>
         #map-canvas-p { 
@@ -34,11 +43,8 @@
         padding: 100px
       }
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-    <script type="text/javascript" src="js/geolocalizacion.js"></script>
-    <script type="text/javascript" src="js/ajax.js"></script>
-    <script src="js/jquery-1.8.2.min.js"></script>
-    <script src="js/jqueryfunciones.js"></script>
+    
+   
     
       <script>
        function hospital_map()
@@ -53,41 +59,7 @@
 
        
     </script>
-    
-    <script>
-     
-     //TODO SCRIPT QUE INICIARA POR MEDIO DE JQUERY POR FAVOR COLOCAR ACA
-        
-        $(document).ready(function() {    
-      
-     //PAGINACION DE MEDICAMENTOS
-        $('.paginate').live('click', function(){
-
-        $('#informacion-medicamentos').html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');
-
-        var page = $(this).attr('data');        
-        var dataString = 'page='+page;
-
-        $.ajax({
-                type: "GET",
-                url: "medicina_responsive.php",
-                data: dataString,
-                success: function(data) {
-                $('#informacion-medicamentos').fadeIn(1000).html(data);
-            }
-           });
-        });   
-         
-        //OBTIENE LA SELECCION Y LUEGO DE LA SELECCION ENVIA LOS DATOS EN AJAX 
-        $("#medicina_select").change(function () {
-            alert();
-             $( "#informacion-medicamentos" ).html( $("#medicina_select").text() );
-        });
-        
-    });    
-        
-        
-    </script>
+  
     
 </head>
 <body>
@@ -245,27 +217,33 @@
                                             </fieldset>
                         </div> <!-- /.row -->
                     </div> <!-- /.services -->
-
+     
                       <div id="menu-3" class="services content">
                          <div class="row">
                             <div class="col-md-12">
                                 <div class="contact-form">
+                          
+                                    
                                 <div class="row">
                                 <form action="#" method="post">
+                             
+
                                 <fieldset class="col-md-4">
-                                    <select id="medicina_select" name="medicina_select" >
+                                     <section >
+                                         <select id="medicina_select" name="medicina_select" >
                                         <?php
                                             require_once 'medicina_selector.php';
                                         ?>
                                     </select>
+                                  </section>
                                 </fieldset>
                                  </form>
                                 </div></div>
                                 <div class="toggle-content spacing">
                                     <h3>Medicamentos</h3>
                                      <div id="informacion-medicamentos">
+                                 
                                          <h3><img src="images/medicina.png" width="100" height="100" />Favor Seleccione una categoria</h3>
-                                         <?php //require('medicina_responsive.php'); ?>
                                     </div>
                                 </div>
                             </div> 
@@ -273,6 +251,7 @@
                                 <div class="toggle-content spacing">
                                     <h3>Estableciomientos de salud mas cercanos</h3>
                                      <div id="informacion-hospital">
+                                         
                                     </div>
                                 </div>
                             </div> 
@@ -329,6 +308,26 @@
         </div>
     </div> <!-- /.container-fluid -->
 
+  	
+    <script type="text/javascript">
+			
+		$( function() {
+				
+				$( '#medicina_select' ).dropdown( {
+					gutter : 60,
+                                        stack: false,
+                                        delay: 25,
+                                        slidingIn: 100,
+                                        onOptionSelect: function(e) {
+                                            var valor = ($(e).text());
+                                            get_medicina(valor);
+                                        }
+				} );
+
+			});
+
+		</script>
+               
     <script src="js/vendor/jquery-1.10.1.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
     <script src="js/jquery.easing-1.3.js"></script>
@@ -364,7 +363,9 @@
             });
             
     </script>
-    
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dropdown.js"></script> 
       
+    
 </body>
 </html>
