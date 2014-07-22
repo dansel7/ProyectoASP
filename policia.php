@@ -3,9 +3,9 @@
 
 require_once 'curl_access.php';
 
-$auth = new autorizacion("medicina");
+$auth = new autorizacion("medicina_categorias");
 
-$auth->Set_Filtro('?per_page=100&page=18');
+$auth->Set_Filtro('?per_page=100&page=1');
 
 
 //$auth->Set_Filtro('?lt=id&gt=3');
