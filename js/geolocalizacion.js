@@ -167,7 +167,7 @@ function mostrar_coordenadas(position) {
   var request = {
   
     location: pyrmont,
-    radius: 1000,
+    radius: 500,
     types: [tipo]
     
   };
@@ -272,8 +272,6 @@ function createMarker(place) {
 
   
    function realizaProceso(informacion , r , estatus){
-        
-        alert(informacion);
         var parametros = {
                 'info' : informacion
         };
@@ -300,6 +298,7 @@ function createMarker(place) {
                     }
                 }
        });
+       
 }
 
 

@@ -215,7 +215,7 @@
                          <div class="row">
                             <div class="col-md-12">
                                 <div class="toggle-content spacing">
-                                    <h3>Sistema de salud</h3>
+                                    <h3>Estableciomientos de salud mas cercanos</h3>
                                      <div id="informacion-hospital">
                                     </div>
                               
