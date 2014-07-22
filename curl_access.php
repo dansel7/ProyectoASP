@@ -13,11 +13,12 @@ class Autorizacion
         "delegacion_info"=> 'http://api.gobiernoabierto.gob.sv/delegation_infos',
         "comunitario"=>'http://api.gobiernoabierto.gob.sv/food_establishment_health_communities',
         "salud"=>'http://api.gobiernoabierto.gob.sv/health_establishments',
-        "salud_medicina"=>'http://api.gobiernoabierto.gob.sv/medicine_categories',
+        "medicina_categorias"=>'http://api.gobiernoabierto.gob.sv/medicine_categories',
         "salud_establecimiento"=>'http://api.gobiernoabierto.gob.sv/health_establishments',
         "albergue"=>'http://api.gobiernoabierto.gob.sv/health_establishments',
         "hidrocarburos"=>'http://api.gobiernoabierto.gob.sv/hydro_prices',
         "hidrocarburos_referencia"=>'http://api.gobiernoabierto.gob.sv/hydro_references',
+        "medicina"=>'http://api.gobiernoabierto.gob.sv/medicines',
         "product_probes"=>'http://api.gobiernoabierto.gob.sv/product_probes',
         "products"=>'http://api.gobiernoabierto.gob.sv/products'
     );

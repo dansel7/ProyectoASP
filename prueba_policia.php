@@ -1,25 +1,26 @@
-<?php
 
+<html>
+<head>
+    <title>API de Google Maps - Lo b�sico</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/js_policia_peticion.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+    <script src="js/jquery-1.8.2.min.js"></script>
 
-require_once 'curl_access.php';
+    
+    <script>
+    
+    function exect()
+    {
+        loadData(0);
+    }
 
-$auth = new autorizacion("products");
-
-$auth->Set_Filtro('?per_page=100&page=18');
-
-
-//$auth->Set_Filtro('?lt=id&gt=3');
-$jason_decode = $auth->Get_Respuesta_JasonDecode(true); 
-$jason_encode = $auth->Get_Respuesta_Jason();
-
-echo "<PRE>";
-print_r($jason_decode);
-echo "</PRE>";
-
-//$busqueda = $auth->Get_busqueda_array($jason_decode , 'id' , '100');
-//echo "</br ></br ></br >busqueda = " . $busqueda;
-
-//echo "</br ></br ></br >total de registros = " . $auth->Get_CountRegistros();
-//print_r($jaso_encode);
-echo "</br ></br ></br >";
-?>
+</script>
+</head>
+<body>
+    <div id="informacion-police"></div>
+    <div id="pagination" align="center"></div>
+    <div id="resultadosClientes"></div>
+    <input type="button" id="cmd" value="ejecutar" onclick="exect();" />
+</body>
+</html>
