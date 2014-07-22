@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/templatemo_misc.css">
     <link rel="stylesheet" href="css/templatemo_style.css">
-	<link rel="stylesheet" href="css/jquery.minimalect.css">
 
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     
@@ -40,13 +39,8 @@
     <script type="text/javascript" src="js/ajax.js"></script>
     <script src="js/jquery-1.8.2.min.js"></script>
     <script src="js/jqueryfunciones.js"></script>
-	<script type="text/javascript" src="js/jquery.minimalect.js"></script>
-	
+    
       <script>
-	  
-	  $(document).ready(function(){
-		$("#medicina_select").minimalect({theme:"bubble"});
-	  });
        function hospital_map()
        {
            set_tipo('hospital');
@@ -257,25 +251,22 @@
                             <div class="col-md-12">
                                 <div class="contact-form">
                                 <div class="row">
-                                
+                                <form action="#" method="post">
+                                <fieldset class="col-md-4">
+                                    <select id="medicina_select" name="medicina_select" >
+                                        <?php
+                                            require_once 'medicina_selector.php';
+                                        ?>
+                                    </select>
+                                </fieldset>
+                                 </form>
                                 </div></div>
                                 <div class="toggle-content spacing">
                                     <h3>Medicamentos</h3>
                                      <div id="informacion-medicamentos">
                                          <h3><img src="images/medicina.png" width="100" height="100" />Favor Seleccione una categoria</h3>
                                          <?php //require('medicina_responsive.php'); ?>
-											<form action="#" method="post">
-												<fieldset class="col-md-4">
-													<select id="medicina_select" name="medicina_select" style="display:none;">
-														<?php
-															require_once 'medicina_selector.php';
-														?>
-													</select>
-													<div class="minict_wrapper bubble">
-													</div>
-												</fieldset>
-											</form>
-										</div>
+                                    </div>
                                 </div>
                             </div> 
                             <div class="col-md-12">
