@@ -1,6 +1,6 @@
 
 $(document).ready(function() {    
-    $('.paginar_medicamentos').live('click', function(){
+    $('.paginate').live('click', function(){
 
         $('#informacion-medicamentos').html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');
 
@@ -9,7 +9,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "GET",
-            url: "includes/pagination.php",
+            url: "medicina_responsive.php",
             data: dataString,
             success: function(data) {
                 $('#content').fadeIn(1000).html(data);

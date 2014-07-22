@@ -39,6 +39,7 @@
     <script type="text/javascript" src="js/ajax.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
     <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/jqueryfunciones.js"></script>
     
       <script>
        function hospital_map()
@@ -214,9 +215,23 @@
                       <div id="menu-3" class="services content">
                          <div class="row">
                             <div class="col-md-12">
+                                <div class="contact-form">
+                                <div class="row">
+                                <form action="#" method="post">
+                                <fieldset class="col-md-4">
+                                    <select id="medicina_select">
+                                        <?php
+                                            require_once 'medicina_selector.php';
+                                        ?>
+                                    </select>
+                                </fieldset>
+                                 </form>
+                                </div></div>
                                 <div class="toggle-content spacing">
                                     <h3>Medicamentos</h3>
                                      <div id="informacion-medicamentos">
+                                         <h3><img src="images/medicina.png" width="100" height="100" />Favor Seleccione una categoria</h3>
+                                         <?php //require('medicina_responsive.php'); ?>
                                     </div>
                                 </div>
                             </div> 
