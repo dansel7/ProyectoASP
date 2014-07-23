@@ -15,6 +15,8 @@
      $filtro= array() ;
      $valor = array();
      $body = new body();
+     $paging = new PHPPaging();
+     
      echo $body->get_head();
    
      
@@ -22,7 +24,7 @@
     {
         if(isset($_REQUEST['estado']))
         {
-            $filtro = $_SESSION['filtrar'];
+            $filtro = $_SESSION['filtrar']; 
               echo $body->get_menu();
         }
         else{
@@ -34,10 +36,8 @@
     {
          $valor = $_POST['info'];
     }
-    
-    
-    $paging = new PHPPaging();
-    
+   
+    $paging->porPagina(8);                
     $i=0;
     foreach($valor as $key=>$value)
     {
@@ -108,9 +108,6 @@
             }
         }
     }*/
-    /*  
-        <p>Donec mattis enim sit amet nisl faucibus, eu pulvinar nibh facilisis. Aliquam erat volutpat. Vivamus tempus, nisi varius imperdiet molestie, velit mi feugiat felis, sit amet fringilla mi massa sit amet arcu. Mauris dictum nisl id felis lacinia congue. Aliquam lectus nisi, sodales in lacinia quis, lobortis vel sem.
-        <br><br><strong>Address:</strong> 123 Thamine Street, Digital Estate, Yangon 10620, Myanmar
-         <br><strong>Email:</strong> info@company.com | <strong>Tel:</strong> 010-020-0340</p>*/
+
     
 ?>

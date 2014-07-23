@@ -14,10 +14,11 @@
         
     }); 
     
-    function get_medicina(categoria)
+    function get_medicina(categoria , busqueda)
     {
          var parametros = {
-                'categoria' : categoria
+                'categoria' : categoria,
+                'busqueda' : busqueda
             };
             
            $.ajax({

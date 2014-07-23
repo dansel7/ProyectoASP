@@ -90,9 +90,15 @@ class Autorizacion
      * @example $auth = new autorizacion("products");
                 $auth->Get_Busqueda('arroz' , 'id');
      */
-    public function Get_AllBusqueda($PARAMETRO , $CATEGORIA)
+    public function Get_AllBusquedaNumber($PARAMETRO , $CATEGORIA)
     {
-        $extP =$this->URL[$this->ID] .'?&q[' .$CATEGORIA. '_cont_any]='.$PARAMETRO;
+        $extP =$this->URL[$this->ID] .'?&q[' .$CATEGORIA. '_eq]='.$PARAMETRO;
+        $this->load($extP);
+    }
+    
+     public function Get_AllBusqueda($PARAMETRO , $CATEGORIA)
+    {
+        $extP =$this->URL[$this->ID] .'?&q[' .$CATEGORIA. '_cont_any]='.$PARAMETRO ;
         $this->load($extP);
     }
     

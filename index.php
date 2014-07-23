@@ -318,9 +318,9 @@
                                         stack: false,
                                         delay: 25,
                                         slidingIn: 100,
-                                        onOptionSelect: function(e) {
-                                            var valor = ($(e).text());
-                                            get_medicina(valor);
+                                        onOptionSelect: function(opt) {
+                                            var valor = (opt.data('value'));
+                                            get_medicina(valor , null);
                                         }
 				} );
 

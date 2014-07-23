@@ -2,17 +2,17 @@
 <?php
 
 include "curl_access.php";
-$auth = new autorizacion("products");
+$auth = new autorizacion("medicina");
 
-$auth->Set_Filtro('?per_page=100&page=1');
+//$auth->Set_Filtro('?per_page=100&page=3');
 
 //PARA PROBAR PONER ASI /prueba_policia.php?kw=frijol
 //SINO ESTA PREDETERMINADO QUE BUSQUE ARROZ POR EL MOMENTO
 
 
-$valor=isset($_GET['kw'])?$_GET['kw']:"arroz";
+$valor=isset($_GET['kw'])?$_GET['kw']:'1';
 
-$auth->Get_AllBusqueda($valor , 'name');
+$auth->Get_AllBusquedaNumber($valor , 'medicine_category_id');
 
 
 //$auth->Set_Filtro('?lt=id&gt=3');
