@@ -218,7 +218,7 @@
                         </div> <!-- /.row -->
                     </div> <!-- /.services -->
      
-                      <div id="menu-3" class="services content">
+                    <div id="menu-3" class="services content">
                          <div class="row">
                             <div class="col-md-12">
                                 <div class="contact-form">
@@ -226,8 +226,7 @@
                                     
                                 <div class="row">
                                 <form action="#" method="post">
-                             
-
+                                   
                                 <fieldset class="col-md-4">
                                      <section >
                                          <select id="medicina_select" name="medicina_select" >
@@ -237,6 +236,11 @@
                                     </select>
                                   </section>
                                 </fieldset>
+                                    <fieldset class="col-md-4">
+                                     </fieldset>
+                                     <fieldset class="col-md-4">
+                                         <input id="name" type="text" name="txt_med" id="txt_med" placeholder="Buscar una medicina">
+                                     </fieldset>
                                  </form>
                                 </div></div>
                                 <div class="toggle-content spacing">
