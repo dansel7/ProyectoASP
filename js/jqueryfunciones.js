@@ -11,7 +11,14 @@
             var categoria = $("#medicina_select").val();
             get_medicina(categoria);
         });*/
-        
+         
+          
+        $("#txt_med").keyup(function () {
+          alert();                      
+          var valor = $("#txt_med").val();
+          get_medicina(null,valor);
+         });
+
     }); 
     
     function get_medicina(categoria , busqueda)

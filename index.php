@@ -239,7 +239,9 @@
                                     <fieldset class="col-md-4">
                                      </fieldset>
                                      <fieldset class="col-md-4">
-                                         <input id="name" type="text" name="txt_med" id="txt_med" placeholder="Buscar una medicina">
+                                        <input id="name" type="text" 
+                                                name="txt_med" id="txt_med" 
+                                                placeholder="Buscar una medicina" onkeyup="get_medicina(null , this.value);" />
                                      </fieldset>
                                  </form>
                                 </div></div>
@@ -273,9 +275,6 @@
                         <div class="row">
                             <div class="contact-form">
                                 <form action="#" method="post">
-                                            <fieldset class="col-md-4">
-                                                <input id="name" type="text" name="name" placeholder="Busqueda">
-                                            </fieldset>
                             </div>
                             <div class="col-md-12">
                                 <div class="toggle-content text-center spacing">
@@ -315,6 +314,7 @@
     <script type="text/javascript">
 			
 		$( function() {
+                      
 				
 				$( '#medicina_select' ).dropdown( {
 					gutter : 60,
@@ -325,7 +325,7 @@
                                             var valor = (opt.data('value'));
                                             get_medicina(valor , null);
                                         }
-				} );
+				});
 
 			});
 

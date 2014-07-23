@@ -19,7 +19,6 @@
    if(isset($_REQUEST['busqueda']))
    {
        $data_b= $_REQUEST['busqueda'];
-     
    }
 
    if(isset($_REQUEST['categoria']))
@@ -38,16 +37,23 @@
         {
             if ($data_c != null) {
                 $auth->Get_AllBusquedaNumber($data_c, 'medicine_category_id');
+            }
+            else
+                 $auth->Get_AllBusqueda($data_b, 'name');
         }       
-        else {
-               $auth->Get_AllBusquedaNumber($data_b, 'name');
-        }
+
         
         $jason_decode = $auth->Get_Respuesta_JasonDecode(true); 
-        $valor = $jason_decode;
         
+        if(empty($jason_decode))
+        {
+            echo "Lo sentimos no se ha encontrado la medicina " . $data_b;
+            return;
         }
-   }
+        else
+            $valor = $jason_decode;
+     }
+   
    
     $_SESSION['filtrar_med'] = $valor;
     $i=0;
