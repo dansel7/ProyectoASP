@@ -249,7 +249,10 @@
                                     <h3>Medicamentos</h3>
                                      <div id="informacion-medicamentos">
                                  
-                                         <h3><img src="images/medicina.png" width="100" height="100" />Favor Seleccione una categoria</h3>
+                                         <h3>
+                                             <img src="images/medicina.png" width="100" height="100" />
+                                             Favor Seleccione una categoria o realice una busqueda
+                                         </h3>
                                     </div>
                                 </div>
                             </div> 
