@@ -30,7 +30,7 @@
    
    if(isset($_REQUEST['estado']))
    {
-           $valor = $_SESSION['filtrar']; 
+           $valor = $_SESSION['filtrar_med']; 
            echo $body->get_menu();
    }
    else{                
@@ -49,7 +49,7 @@
         }
    }
    
-    $_SESSION['filtrar'] = $valor;
+    $_SESSION['filtrar_med'] = $valor;
     $i=0;
     foreach($valor as $key=>$value)
     {
@@ -99,7 +99,7 @@
                         echo "<strong>MEDICAMENTO: ". $val . "</strong>";   
                         break;
                     case 'precio':
-                         echo "<br>Precio: $". $val . "";
+                         echo "<br>Precio: $". $val . "<br>";
                         break;
                     case 'cantidad':
                         echo "Cantidad: ". $val . "<br>";
