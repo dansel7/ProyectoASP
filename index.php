@@ -76,7 +76,7 @@
                     
                     <div class="logo-wrapper">
                         <h1 class="logo">
-                            <a rel="nofollow" href="http://www.templatemo.com/preview/templatemo_410_circle"><img src="images/logo.png" alt="Circle - Free HTML5 Templates">
+                            <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv"><img src="images/logo.png" alt="Circle - Free HTML5 Templates">
                             <span>Gobierno Abierto</br>El Salvador</span></a>
                         </h1>
                     </div> <!-- /.logo-wrapper -->
@@ -264,7 +264,6 @@
 
                     </div> 
                     </div> 
-                    
 
                     <div id="menu-4" class="contact content">
                         <div class="row">
@@ -303,7 +302,7 @@
     <div class="container-fluid">   
         <div class="row">
             <div class="col-md-12 footer">
-                <p class="footer-text">Copyright &copy; 2014 <a href="#">DAM company</a> - <a rel="nofollow" href="http://www.templatemo.com/preview/templatemo_410_circle">Circle</a> by <a rel="nofollow" href="http://www.templatemo.com">Free Templates</a></p>
+                <p class="footer-text">Copyright &copy; 2014 <a href="#">Hackaton</a> - <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv/"> </a> by <a rel="nofollow" href="">Los Superduper</a></p>
             </div><!-- /.footer --> 
         </div>
     </div> <!-- /.container-fluid -->
