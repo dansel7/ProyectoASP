@@ -2,7 +2,7 @@
 <?php
 
 include "curl_access.php";
-$auth = new autorizacion("medicina");
+$auth = new autorizacion("delegacion_info");
 
 //$auth->Set_Filtro('?per_page=100&page=3');
 
@@ -10,9 +10,9 @@ $auth = new autorizacion("medicina");
 //SINO ESTA PREDETERMINADO QUE BUSQUE ARROZ POR EL MOMENTO
 
 
-$valor=isset($_GET['kw'])?$_GET['kw']:'1';
+//$valor=isset($_GET['kw'])?$_GET['kw']:'1';
 
-$auth->Get_AllBusquedaNumber($valor , 'medicine_category_id');
+//$auth->Get_AllBusquedaNumber($valor , 'medicine_category_id');
 
 
 //$auth->Set_Filtro('?lt=id&gt=3');
