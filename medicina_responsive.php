@@ -16,51 +16,40 @@
    
    echo $body->get_head();
    
-   if(!isset($_REQUEST['busqueda']))
-   {
-       if(isset($_REQUEST['estado']))
-        {
-            $valor = $_SESSION['filtrar']; 
-             echo $body->get_menu();
-        }
-        else{
-            echo "busqueda no encontrada ...";
-            return;
-        }
-   }else
+   if(isset($_REQUEST['busqueda']))
    {
        $data_b= $_REQUEST['busqueda'];
+     
    }
 
    if(isset($_REQUEST['categoria']))
    {
        $data_c = $_REQUEST['categoria'];
    }
-   else
+   
+   
+   if(isset($_REQUEST['estado']))
    {
-       if(isset($_REQUEST['estado']))
+           $valor = $_SESSION['filtrar']; 
+           echo $body->get_menu();
+   }
+   else{                
+        if($data_c != null || $data_b != null)
         {
-            $valor = $_SESSION['filtrar']; 
-             echo $body->get_menu();
+            if ($data_c != null) {
+                $auth->Get_AllBusquedaNumber($data_c, 'medicine_category_id');
+        }       
+        else {
+               $auth->Get_AllBusquedaNumber($data_b, 'name');
         }
-        else{
-            echo "medicinas no encontradas ....";
-            return;
-        }
-   }
-   
-   if($data_c != null || $data_b != null)
-   {
-       if ($data_c != null) {
-        $auth->Get_AllBusquedaNumber($data_c, 'medicine_category_id');
-    } else {
-        $auth->Get_AllBusquedaNumber($data_b, 'name');
-    }
-
-    $jason_decode = $auth->Get_Respuesta_JasonDecode(true); 
+        
+        $jason_decode = $auth->Get_Respuesta_JasonDecode(true); 
         $valor = $jason_decode;
+        
+        }
    }
    
+    $_SESSION['filtrar'] = $valor;
     $i=0;
     foreach($valor as $key=>$value)
     {
@@ -80,6 +69,10 @@
                     case 'quantity':
                         $filtro[$i]['cantidad']= $v;
                         break;
+                    case 'unit':
+                         $filtro[$i]['unidad']= $v;
+                    case 'updated_at':
+                         $filtro[$i]['fecha']= $v;  
                     default :
                         break;
                 }
@@ -87,8 +80,9 @@
         }
         $i++;
     }
-    
-    $_SESSION['filtrar'] = $filtro;
+   
+  
+   
     $paging->porPagina(8);  
     $paging->linkAgregar('&estado=1');
     $paging->agregarArray($filtro);
@@ -99,17 +93,27 @@
     {
         foreach ($value as $k=>$val)
         {
-            if($k=='nombre')
-            {
-                echo "<strong>". $val . "</strong>";         
-            }
-            else{
-                if($k=='precio')
-                    echo "<br>". $val . "<br></p>";
-                else
-                    echo "<br>". $val . "<br></p>";
-            }
+                switch($k)
+                {
+                    case 'nombre':
+                        echo "<strong>MEDICAMENTO: ". $val . "</strong>";   
+                        break;
+                    case 'precio':
+                         echo "<br>Precio: $". $val . "";
+                        break;
+                    case 'cantidad':
+                        echo "Cantidad: ". $val . "<br>";
+                        break;
+                    case 'unidad':
+                         echo "Unidad: ". $val . "<br>";
+                        break;  
+                     case 'fecha':
+                         echo "Actualizacion: ".date( 'o-W', strtotime( $val) )  . "<br>";
+                        break;  
+                }  
         }
+        
+        echo "<br>";
     }
     echo '<br>';
     echo 'Paginas <b>'.$paging->fetchNavegacion() . '</b>';
