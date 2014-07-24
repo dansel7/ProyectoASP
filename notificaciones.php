@@ -19,15 +19,21 @@
    //1 dia=86400
    $meses = 86400 * 186;
    
+
+   
    foreach ($arreglo_med as $k=>$v)
    {
        foreach($v as $key=>$value)
        {
-           if($key=='updated_at')
-           {
-               $fecha_actual = strtotime(date("d-m-Y H:i:00",time() - $meses));
-               $fecha_medicina = strtotime("19-11-2008 21:00:00");
-               if($fecha_actual >= $fecha_medicina) $count++;
+           foreach($value as $kk=>$vv){
+                if($kk=='updated_at')
+                {
+                     //$fecha_actual = strtotime(date("d-m-Y H:i:00",time() - $meses));
+                     $fecha_actual = strtotime(date("d-m-Y H:i:00",time() - $meses));
+                     $fecha_medicina = strtotime($vv);
+                    if($fecha_actual < $fecha_medicina) $count++;
+                       
+                }
            }
        }
    }
