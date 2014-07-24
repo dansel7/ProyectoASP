@@ -308,7 +308,7 @@
     <div class="container-fluid">   
         <div class="row">
             <div class="col-md-12 footer">
-                <p class="footer-text">Copyright &copy; 2014 <a href="#">Hackaton</a> - <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv/"> </a> by <a rel="nofollow" href="">CAM Code</a></p>
+                <p class="footer-text">Copyright &copy; 2014 <a href="#">Hackaton</a> - <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv/"> </a> by <a rel="nofollow" href="">Los Superduper</a></p>
             </div><!-- /.footer --> 
         </div>
     </div> <!-- /.container-fluid -->
