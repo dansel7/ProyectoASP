@@ -148,27 +148,11 @@
                                 </li>
                             </ul> <!-- /.tabs -->
                             <div class="col-md-12 col-sm-12">
-                                <form id="tab1">
-                            <fieldset class="col-md-4">
-                                <br><br><br><br><br>
-                                <input type="text" value="" id="notify_buscar" name="notify_buscar" placeholder="Hacer una busqueda" />
-                                  <fieldset class="col-md-4">
-                                     <section >
-                                         <select id="notify_vista_med" name="notify_vista_med" >
-                                             <option value="-1" selected>Seleccionar Vista</option>
-                                             <option value="1">Recientes</option>
-                                             <option value="2">Ultimos 6 meses</option>
-                                             <option value="3">Ultimo año</option>
-                                    </select>
-                                  </section> 
-                                </fieldset>
-                             </fieldset>
-                                </form>
-                                <div class="toggle-content text-center" id="tab1">
-                                    <h3>Our History</h3>
-                                    <p>Circle is free HTML5 template from templatemo. Feel free to download, modify and use this template for your websites. You can easily change icons by <a rel="nofollow" href="http://fontawesome.info/font-awesome-icon-world-map/">Font Awesome</a>. Example: <strong>&lt;i class=&quot;fa fa-camera&quot;&gt;&lt;/i&gt;</strong> 
-                                    <br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, repellat, aspernatur nihil quasi commodi laboriosam cumque est minus minima sit dicta adipisci possimus magnam. Sit, repudiandae, ut, error, voluptates aspernatur inventore quo earum reiciendis dolorum amet perspiciatis adipisci itaque voluptatum iste laboriosam sapiente hic autem blanditiis doloribus nihil.</p>
-                                </div>
+                          
+
+                         <div class="toggle-content text-center" id="tab1">
+                             
+                           </div>
 
                                 <div class="toggle-content text-center" id="tab2">
                                     <h3>What We Do</h3>
