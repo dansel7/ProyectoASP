@@ -94,8 +94,6 @@
                         <ul class="menu">
                             <li><a class="homebutton" href="#">Home</a></li>
                             <li><a class="show-1" href="#">Lo Nuevo</a></li>
-                            <li><a class="show-2" href="#">Services</a></li>
-                            <li><a class="show-1" href="#">About</a></li>
                             <li><a class="show-2" href="#" onclick="food_market_map();">Alimentos</a></li>
                             <li><a class="show-3" href="#" onclick="hospital_map();" >Salud</a></li>
                             <li><a class="show-4" href="#" onclick="police_map();"  >Seguridad</a></li>
