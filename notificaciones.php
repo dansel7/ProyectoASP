@@ -1,11 +1,16 @@
 <?php
    include "curl_access.php";
+   include "tools.php";
+   
    $auth = new autorizacion("medicina");
    $registro = array();
    $count = 0;
+   $count_m = 0;
    $arreglo_med = array();
    $end = false;
    $pag =1;
+   
+   set_time_limit(100);
    
    while($end != true){
         $auth->Set_Filtro('?per_page=100&page=' . $pag);
@@ -28,16 +33,28 @@
            foreach($value as $kk=>$vv){
                 if($kk=='updated_at')
                 {
-                     //$fecha_actual = strtotime(date("d-m-Y H:i:00",time() - $meses));
-                     $fecha_actual = strtotime(date("d-m-Y H:i:00",time() - $meses));
-                     $fecha_medicina = strtotime($vv);
-                    if($fecha_actual < $fecha_medicina) $count++;
-                       
+                     $fecha_actual = date("d-m-Y");
+                     $fecha_actual = strtotime ( '-6 month' , strtotime ( $fecha_actual ) ) ;
+                     $fecha_actual = date("d-m-Y" , $fecha_actual);
+                     $fecha_medicina =date( "d-m-Y", strtotime( $vv) );
+                     $total_6month = compararFechas($fecha_medicina , $fecha_actual );
+                     if($total_6month >= 0)
+                         $count++;
+                     
+                     $fecha_actual = date("d-m-Y");
+                     $fecha_actual = strtotime ( '-1 month' , strtotime ( $fecha_actual ) ) ;
+                     $fecha_actual = date("d-m-Y" , $fecha_actual);
+                     $total_month = compararFechas($fecha_medicina , $fecha_actual );
+                     
+                   if($total_month >= 0)
+                         $count_m++;
                 }
            }
        }
    }
 
-   echo "Existen " . $count . " Actualizaciones Recientes";
+   echo "+6 Meses (" . $count . ") Actualizaciones";
+   echo "<br>(" . $count_m . ") Recientes";
    
 ?>
+
