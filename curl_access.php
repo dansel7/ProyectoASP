@@ -104,6 +104,12 @@ class Autorizacion
         $this->load($extP);
     }
     
+    public function Get_AllBusquedaDate($PARAMETRO , $CATEGORIA)
+    {
+        $extP =$this->URL[$this->ID] .'?&q[' .$CATEGORIA. '_lteq]='.$PARAMETRO ;
+        $this->load($extP);
+    }
+    
     /**
      * @todo Obtiene los registros de forma nativa JSON 
      */

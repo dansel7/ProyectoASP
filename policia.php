@@ -9,6 +9,7 @@ $auth = new autorizacion("medicina");
 
 
 //$auth->Set_Filtro('?lt=id&gt=3');
+$jason_encode = $auth->Get_AllBusquedaDate('updated_at' , '2013');
 $jason_decode = $auth->Get_Respuesta_JasonDecode(true); 
 $jason_encode = $auth->Get_Respuesta_Jason();
 
@@ -16,8 +17,8 @@ echo "<PRE>";
 print_r($jason_decode);
 echo "</PRE>";
 
-$busqueda = $auth->Get_busqueda_array($jason_decode , 'name' , '100');
-echo "</br ></br ></br >busqueda = " . $busqueda;
+//$busqueda = $auth->Get_busqueda_array($jason_decode , '' , '100');
+//echo "</br ></br ></br >busqueda = " . $busqueda;
 
 echo "</br ></br ></br >total de registros = " . $auth->Get_CountRegistros();
 //print_r($jaso_encode);

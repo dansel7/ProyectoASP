@@ -1,25 +1,7 @@
 
     
      //TODO SCRIPT QUE INICIARA POR MEDIO DE JQUERY POR FAVOR COLOCAR ACA
-     $(document).ready(function() {    
-      
-        //PAGINACION DE MEDICAMENTOS
-        //OBTIENE LA SELECCION Y LUEGO DE LA SELECCION ENVIA LOS DATOS EN AJAX 
-      
-       /* $("#medicina_select").change(function () {
-            
-            var categoria = $("#medicina_select").val();
-            get_medicina(categoria);
-        });*/
-         
-          
-        $("#txt_med").keyup(function () {
-          alert();                      
-          var valor = $("#txt_med").val();
-          get_medicina(null,valor);
-         });
 
-    }); 
     
     function get_medicina(categoria , busqueda)
     {
@@ -41,6 +23,17 @@
                 
             });
     }
+    
+    function h()
+    {
+        alert();
+    }
+    
+     function carga_notificaciones()
+     {
+          alert();
+     }
+    
         
 function goToByScroll(id){
 	$('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');

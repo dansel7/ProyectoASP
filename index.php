@@ -93,6 +93,8 @@
                     <div class="menu-wrapper">
                         <ul class="menu">
                             <li><a class="homebutton" href="#">Home</a></li>
+                            <li><a class="show-1" href="#">Lo Nuevo</a></li>
+                            <li><a class="show-2" href="#">Services</a></li>
                             <li><a class="show-1" href="#">About</a></li>
                             <li><a class="show-2" href="#" onclick="food_market_map();">Alimentos</a></li>
                             <li><a class="show-3" href="#" onclick="hospital_map();" >Salud</a></li>
@@ -131,8 +133,9 @@
                         <div class="row">
                             <ul class="tabs">
                                 <li class="col-md-4 col-sm-4">
-                                    <a href="#tab1" class="icon-item">
+                                    <a href="#tab1" class="icon-item" >
                                         <i class="fa fa-umbrella"></i>
+                                        <div id="notify_medicina"></div>
                                     </a> <!-- /.icon-item -->
                                 </li>
                                 <li class="col-md-4 col-sm-4">
@@ -353,8 +356,8 @@
     <script type="text/javascript">
 			
 		$( function() {
-                      
-				
+                    
+                               
 				$( '#medicina_select' ).dropdown( {
 					gutter : 60,
                                         stack: false,
@@ -365,8 +368,29 @@
                                             get_medicina(valor , null);
                                         }
 				});
-
-			});
+                              carga_notificaciones();
+		});
+                
+                function carga_notificaciones()
+                {
+                    
+                    //cargando las notificaciones medicina y alimentos
+                     var parametros = {
+                        'medicina' : 'true'
+                    };
+                     $.ajax({
+                            data:  parametros,
+                            url:   'notificaciones.php',
+                            type:  'post',
+                            beforeSend: function () {
+                                  $( "#notify_medicina" ).html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');     
+                            },
+                            success:  function (response) {
+                                $( "#notify_medicina" ).html(response);
+                            }
+                        });
+          
+                }
 
 		</script>
                
