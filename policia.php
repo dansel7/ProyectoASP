@@ -5,11 +5,11 @@ require_once 'curl_access.php';
 
 $auth = new autorizacion("medicina");
 
-//$auth->Set_Filtro('?per_page=100&page=1');
+$auth->Set_Filtro('?per_page=100&page=15');
 
 
 //$auth->Set_Filtro('?lt=id&gt=3');
-$jason_encode = $auth->Get_AllBusquedaDate('updated_at' , '2013');
+//$jason_encode = $auth->Get_AllBusquedaDate('updated_at' , '2013');
 $jason_decode = $auth->Get_Respuesta_JasonDecode(true); 
 $jason_encode = $auth->Get_Respuesta_Jason();
 

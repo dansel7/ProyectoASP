@@ -148,6 +148,22 @@
                                 </li>
                             </ul> <!-- /.tabs -->
                             <div class="col-md-12 col-sm-12">
+                                <form id="tab1">
+                            <fieldset class="col-md-4">
+                                <br><br><br><br><br>
+                                <input type="text" value="" id="notify_buscar" name="notify_buscar" placeholder="Hacer una busqueda" />
+                                  <fieldset class="col-md-4">
+                                     <section >
+                                         <select id="notify_vista_med" name="notify_vista_med" >
+                                             <option value="-1" selected>Seleccionar Vista</option>
+                                             <option value="1">Recientes</option>
+                                             <option value="2">Ultimos 6 meses</option>
+                                             <option value="3">Ultimo año</option>
+                                    </select>
+                                  </section> 
+                                </fieldset>
+                             </fieldset>
+                                </form>
                                 <div class="toggle-content text-center" id="tab1">
                                     <h3>Our History</h3>
                                     <p>Circle is free HTML5 template from templatemo. Feel free to download, modify and use this template for your websites. You can easily change icons by <a rel="nofollow" href="http://fontawesome.info/font-awesome-icon-world-map/">Font Awesome</a>. Example: <strong>&lt;i class=&quot;fa fa-camera&quot;&gt;&lt;/i&gt;</strong> 
@@ -366,6 +382,18 @@
                                             get_medicina(valor , null);
                                         }
 				});
+                                
+                                $( '#notify_vista_med' ).dropdown( {
+					gutter : 60,
+                                        stack: false,
+                                        delay: 25,
+                                        slidingIn: 100
+                                       /* onOptionSelect: function(opt) {
+                                            var valor = (opt.data('value'));
+                                            get_medicina(valor , null);
+                                        }*/
+				});
+                                
                               carga_notificaciones();
 		});
                 
