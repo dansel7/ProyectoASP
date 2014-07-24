@@ -20,7 +20,9 @@ class Autorizacion
         "hidrocarburos_referencia"=>'http://api.gobiernoabierto.gob.sv/hydro_references',
         "medicina"=>'http://api.gobiernoabierto.gob.sv/medicines',
         "product_probes"=>'http://api.gobiernoabierto.gob.sv/product_probes',
-        "products"=>'http://api.gobiernoabierto.gob.sv/products'
+        "products"=>'http://api.gobiernoabierto.gob.sv/products',
+        "establecimiento"=>'http://api.gobiernoabierto.gob.sv/shopping_establishments',
+        "marcasProd"=>'http://api.gobiernoabierto.gob.sv/product_brands',
         
     );
     

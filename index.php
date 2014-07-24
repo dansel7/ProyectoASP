@@ -42,6 +42,11 @@
         margin: 0px;
         padding: 100px
       }
+       #map-canvas-f {
+        height: 100%;
+        margin: 0px;
+        padding: 100px
+      }
     </style>
     
    
@@ -54,6 +59,10 @@
        }
       function police_map(){
             set_tipo('police');
+            initialize();
+       }
+        function food_market_map(){
+            set_tipo('grocery_or_supermarket');
             initialize();
        }
 
@@ -85,18 +94,33 @@
                         <ul class="menu">
                             <li><a class="homebutton" href="#">Home</a></li>
                             <li><a class="show-1" href="#">About</a></li>
-                            <li><a class="show-2" href="#">Services</a></li>
+                            <li><a class="show-2" href="#" onclick="food_market_map();">Alimentos</a></li>
                             <li><a class="show-3" href="#" onclick="hospital_map();" >Salud</a></li>
                             <li><a class="show-4" href="#" onclick="police_map();"  >Seguridad</a></li>
                         </ul> <!-- /.menu -->
                         <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
                     </div> <!-- /.menu-wrapper -->
-
                     <!--Arrow Navigation-->
                     <a id="prevslide" class="load-item"><i class="fa fa-angle-left"></i></a>
                     <a id="nextslide" class="load-item"><i class="fa fa-angle-right"></i></a>
 
-                </div> <!-- /.sidebar-menu -->
+                </div> <!-- /.sidebar-menu --><br>
+                <div class="sidebar-menu">
+                   
+                    <div style="position: relative; z-index: 10;color:greenyellow">
+                         <h3 style="margin-bottom:0;background-color:white">Precios Actualizados</h3>
+                    <div style="background-color: white; position:absolute; z-index:-1; top:0; left:0; right:0; bottom:0; opacity:0.6;"></div>
+
+                        <ul id="list-items">
+                            <script>
+                            loadcontent(2,10);
+                            </script>
+                            <li id="more-items">
+                     <a href="#" onclick="loadcontent(2,100)" >Cargar mas ...</a> 
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div> <!-- /.col-md-4 -->
 
             <div class="col-md-8 col-sm-12">
@@ -193,28 +217,42 @@
                                     </a> <!-- /.icon-item -->
                                 </li>
                             </ul> <!-- /.tabs -->
+                            
                             <div class="col-md-12 col-sm-12">
                                 <div class="toggle-content text-center" id="tab4">
-                                    <h3>Our Services</h3>
-                                    <p>You can easily change icons by <a rel="nofollow" href="http://fontawesome.info/font-awesome-icon-world-map/">Font Awesome</a>. Example: <strong>&lt;i class=&quot;fa fa-users&quot;&gt;&lt;/i&gt;</strong> In varius eros ac est interdum, quis scelerisque elit semper. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                                    <br><br>Donec mattis enim sit amet nisl faucibus, eu pulvinar nibh facilisis. Aliquam erat volutpat. Vivamus tempus, nisi varius imperdiet molestie, velit mi feugiat felis, sit amet fringilla mi massa sit amet arcu. Mauris dictum nisl id felis lacinia congue. Aliquam lectus nisi, sodales in lacinia quis, lobortis vel sem. Vestibulum elit nisi, placerat eget auctor ut, dictum at libero.</p>
+                                    <h4>Establecimientos y Supermercados </h4>
+                            <div class="col-md-12">
+                                <div class="toggle-content  spacing">
+                                    <h3>Lugares mas cercanos</h3>
+                                     <div id="informacion-food">
+                                    </div>
                                 </div>
-
+                            </div> 
+                            <br>
+                             <div class="col-md-12">
+                                <div class="google-map">
+                                    <div id="map-canvas-f" ></div> 
+                                </div> 
+                            </div> 
+                                </div>
+                                
+                           
                                 <div class="toggle-content text-center" id="tab5">
-                                    <h3>Our Support</h3>
-                                    <p>Nulla consequat nibh mattis metus sodales, at eleifend tortor tempor. Sed auctor lacus felis. Maecenas auctor enim libero, vel viverra nulla fringilla quis. Sed eget aliquet arcu. Suspendisse ac dignissim nunc, id pretium elit. Nunc id neque vel leo semper gravida non ut enim. Cras sed posuere magna.
-                                    <br><br>Morbi eget ante sed felis tristique interdum. In varius eros ac est interdum, quis scelerisque elit semper. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                    <h3>Ubicacion de Mejores Precios</h3>
+                                     <div class="col-md-12">
+                                <div class="google-map">
+                                    <div id="map-canvas-f" ></div> 
+                                </div> 
+                            </div> 
                                 </div>
 
                                 <div class="toggle-content text-center" id="tab6">
-                                    <h3>Testimonials</h3>
+                                    <h3>Datos Importantes</h3>
                                     <p>Etiam dictum, quam quis pharetra tincidunt, enim nunc faucibus ipsum, vitae condimentum ligula est eu dui. Sed tincidunt tincidunt sapien non feugiat. Aenean lacinia tempor leo, et euismod ligula porta non. Quisque lectus ante, rutrum eu neque volutpat, euismod lobortis velit. Suspendisse felis risus, tempor ac vehicula eu, volutpat volutpat sem. Donec quis orci nisl. Integer euismod lacus nec risus sollicitudin molestie vel semper turpis.
                                     <br><br>In varius imperdiet enim quis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris ac mauris aliquam magna molestie posuere in id elit. Integer semper metus felis, fringilla congue elit commodo a. Donec eget rutrum libero.</p>
                                 </div>
                             </div> <!-- /.col-md-12 -->
-							<fieldset class="col-md-12">
-                                                <input type="submit" name="send" value="Send Message" id="submit" class="button">
-                                            </fieldset>
+						
                         </div> <!-- /.row -->
                     </div> <!-- /.services -->
      
@@ -258,7 +296,7 @@
                             </div> 
                             <div class="col-md-12">
                                 <div class="toggle-content spacing">
-                                    <h3>Estableciomientos de salud mas cercanos</h3>
+                                    <h3>Establecimientos de salud mas cercanos</h3>
                                      <div id="informacion-hospital">
                                          
                                     </div>
@@ -276,9 +314,7 @@
 
                     <div id="menu-4" class="contact content">
                         <div class="row">
-                            <div class="contact-form">
-                                <form action="#" method="post">
-                            </div>
+                          
                             <div class="col-md-12">
                                 <div class="toggle-content text-center spacing">
                                     <h3>Delegaciones</h3>
@@ -308,7 +344,7 @@
     <div class="container-fluid">   
         <div class="row">
             <div class="col-md-12 footer">
-                <p class="footer-text">Copyright &copy; 2014 <a href="#">Hackaton</a> - <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv/"> </a> by <a rel="nofollow" href="">CAM Code</a></p>
+                <p class="footer-text">Copyright &copy; 2014 <a href="#">Hackaton</a> - <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv/"> </a> by <a rel="nofollow" href="">DAM Code</a></p>
             </div><!-- /.footer --> 
         </div>
     </div> <!-- /.container-fluid -->

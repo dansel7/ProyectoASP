@@ -47,7 +47,7 @@
         
         if(empty($jason_decode))
         {
-            echo "Lo sentimos no se ha encontrado la medicina " . $data_b;
+            echo "No se ha encontrado la medicina " . $data_b;
             return;
         }
         else

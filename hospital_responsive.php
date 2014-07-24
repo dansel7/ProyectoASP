@@ -28,7 +28,7 @@
               echo $body->get_menu();
         }
         else{
-            echo "Lo sentimos No existen hospitales cerca.";
+            echo "Parece que no hay Hospitales cerca de su Ubicaci&oacute;n";
             return;
         }
     }

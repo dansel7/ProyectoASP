@@ -100,13 +100,14 @@ var placeTypes = [
 var iconos =[
     'images/google_icon/hospital.png',
     'images/google_icon/policia.png',
-    'images/google_icon/educacion.png'
+    'images/google_icon/supmarket.png'
 ];
 
 
 var rutas= [
     'police_responsive.php',
-    'hospital_responsive.php'
+    'hospital_responsive.php',
+    'food_market_responsive.php',
 ];
 
 var map;
@@ -158,6 +159,13 @@ function mostrar_coordenadas(position) {
                 zoom: 15
             });
             break;
+          case 'grocery_or_supermarket':
+                map = new google.maps.Map(document.getElementById('map-canvas-f'), {
+                center: pyrmont,
+                zoom: 15
+            });    
+            break;
+         
     }
 
  
@@ -210,7 +218,7 @@ function get_informacion(objeto)
      for (var i = 0; i < objeto.length; i++){
              string_jason +=JSON.stringify(objeto[i]);
              object__[i]= JSON.stringify(objeto[i]);
-            //document.getElementById('informacion-police').innerHTML+=JSON.stringify(objeto[i]);
+           
         }
      
     var estatus =0;
@@ -223,6 +231,10 @@ function get_informacion(objeto)
         case 'hospital':
             estatus=1;
             window.ruta=window.rutas[1];
+            break;
+            case 'grocery_or_supermarket':
+            estatus=2;
+            window.ruta=window.rutas[2];
             break;
     }
  
@@ -247,7 +259,7 @@ function createMarker(place) {
        case 'police':
            i=1;
            break;
-       case 'school':
+       case 'grocery_or_supermarket':
             i=2;
             break;
        default:
@@ -285,6 +297,8 @@ function createMarker(place) {
                     }
                     else if (estatus===1)
                          $("#informacion-hospital").html("Procesando, espere por favor...");
+                      else if (estatus===2)
+                         $("#informacion-food").html("Procesando, espere por favor...");
                         
                 },
                 success:  function (response) {
@@ -295,6 +309,9 @@ function createMarker(place) {
                     else if (estatus===1){
                          $("#informacion-hospital").html('');
                         $("#informacion-hospital").html(response);
+                    }else if (estatus===2){
+                         $("#informacion-food").html('');
+                        $("#informacion-food").html(response);
                     }
                 }
        });

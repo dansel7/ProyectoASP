@@ -9,7 +9,7 @@
 
     if(!isset($_POST['info']))
     {
-        echo "parece que no tiene estaciones de policia cerca";
+        echo "Parece que no hay estaciones de Policia cerca de su Ubicaci&oacute;n";
         return;
     }
     
