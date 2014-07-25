@@ -82,23 +82,21 @@ function ControlLog($result = array())
                     $_SESSION['email']=$value;
                     break;
                 case "fb":
-                    if(!empty($value))
+                    if($value !='null'){
                         $_SESSION['facebook']=true;
-                    else
+                        $_SESSION['twitter']=false;
+                    }
+                    else{
                         $_SESSION['facebook']=false;
-                    break;
-                case "tw":
-                    if(!empty($value))
                         $_SESSION['twitter']=true;
-                    else
-                         $_SESSION['twitter']=false;
+                    }
                     break;
                 case "foto":
                     $_SESSION['imagen']=$value;
                     break;
             }
         }
-         header('Location:index.php');
+        header('Location:index.php');
 }
 
 
