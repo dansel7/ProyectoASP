@@ -48,6 +48,11 @@
         margin: 0px;
         padding: 100px
       }
+    input
+    {
+        box-shadow:inset 0 0 2px 2px #888;
+    }
+      
     </style>
     
    
@@ -224,10 +229,15 @@
                             <div class="col-md-4 col-sm-4">
                                 <div class="member-item">
                                     <div class="thumb">
-                                        <img src="images/team/member-2.jpg" alt="Mary - Web Developer">
+                                        <img src="images/todo/boton_iniciar_sesion.png" >
                                     </div>
-                                    <h4>Mary</h4>
-                                    <span>Web Developer</span>
+                                    <form id="frm_sesion" method="post" action="login.php">
+                                        <br><br>
+                                        <input id="user" type="text" placeholder="Usuario" />
+                                        <br>
+                                        <input id="user" type="password" placeholder="Contraseña" />
+                                        <input type="submit" value="Acceder" />
+                                    </form>
                                 </div> <!-- /.member-item -->
                             </div> <!-- /.col-md-4 -->
                             <div class="col-md-4 col-sm-4">
