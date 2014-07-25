@@ -1,3 +1,4 @@
+
 <?php
 
 $script = "
@@ -7,6 +8,21 @@ input
 {
   box-shadow:inset 0 0 2px 2px #888;
 }
+.error {
+       font-family:Arial, Helvetica, sans-serif; 
+       font-size:13px;
+       border: 1px solid;
+       margin: 10px 0px;
+       padding:15px 10px 15px 50px;
+       background-repeat: no-repeat;
+       background-position: 10px center;
+}
+
+.error {
+       color: #D8000C;
+       background-color: #FFBABA;
+}
+
 </style>
         
 
@@ -35,7 +51,6 @@ if (!empty($_GET['oauth_verifier']) && !empty($_SESSION['oauth_token']) && !empt
     } else {
 	   $twitter_otoken=$_SESSION['oauth_token'];
 	   $twitter_otoken_secret=$_SESSION['oauth_token_secret'];
-	   $email='';
            
            $id = $user_info->id_str;
            $username = $user_info->name;
@@ -50,10 +65,10 @@ if (!empty($_GET['oauth_verifier']) && !empty($_SESSION['oauth_token']) && !empt
 
 ?>
 
-<form method="get" action="#">
+<form method="get" action="twitter_reg.php">
 <table width="752" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-  <input type="hidden" id="id_twitter" value="<?php echo $id; ?>" />
+  <input type="hidden" name="id_twitter" id="id_twitter" value="<?php echo $id; ?>" />
   <input type="hidden" name="cmdimg" id="cmdimg" value="<?php echo $imagen; ?>" />
   </tr>
   <tr>
@@ -86,7 +101,7 @@ if (!empty($_GET['oauth_verifier']) && !empty($_SESSION['oauth_token']) && !empt
     <tr>
     <td style="height: 56px">
    	  <b>Genero&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b>&nbsp; 
-          <select id="genero" >
+          <select required id="genero" name="genero" >
               <option selected value="male">Masculino</option>
               <option selected value="male">Femenino</option>
           </select>
@@ -96,7 +111,7 @@ if (!empty($_GET['oauth_verifier']) && !empty($_SESSION['oauth_token']) && !empt
     <tr>
     <td style="height: 56px">
    	  <b class="welcome">Nacimiento&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-              <input name="birthday" type="date"  id="birthday" value="" style="width: 137px"/></b>&nbsp; 
+              <input required name="birthday" type="date"  id="birthday" value="" style="width: 137px"/></b>&nbsp; 
       </td>
     </tr>
   <tr>

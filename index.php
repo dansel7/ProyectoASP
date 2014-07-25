@@ -316,7 +316,8 @@
                                             else
                                             {
                                                 $sesion  = '<a class="twitter-timeline" href="https://twitter.com/InfoUtilSV" '
-                                                        . 'data-widget-id="492750463066857472">Tweets por @InfoUtilSV</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");'
+                                                        . 'data-widget-id="492750463066857472">Tweets por @InfoUtilSV</a>'
+                                                        . '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");'
                                                         . '</script>';
 
                                             }
@@ -370,12 +371,19 @@
                            
                                 <div class="toggle-content text-center" id="tab5">
                                     <h3>Ubicacion de Mejores Precios</h3>
-                                     <div class="col-md-12">
-                                <div class="google-map">
-                                    <div id="map-canvas-f" ></div> 
-                                </div> 
-                            </div> 
+                                     <div class="col-md-12"> 
+                                          <div class="google-map">
+                                            <div id="map-canvas-f" ></div> 
+                                         </div> 
+                                     </div>  
                                 </div>
+                                
+                              <div class="toggle-content spacing">
+                                 <div class="fb-comments" 
+                                      data-href="http://infoutil.gobiernoabierto.gob.sv/products?search%5Bcategory_id%5D=9" 
+                                      data-width="900" data-numposts="8" data-colorscheme="light">
+                                 </div>
+                             </div>
 
                                 <div class="toggle-content text-center" id="tab6">
                                     <h3>Datos Importantes</h3>
@@ -439,6 +447,13 @@
                                     <div id="map-canvas-h" ></div> 
                                 </div> 
                             </div> 
+                             
+                             <div class="toggle-content spacing">
+                                 <div class="fb-comments" 
+                                      data-href="http://infoutil.gobiernoabierto.gob.sv/medicines" 
+                                      data-width="900" data-numposts="8" data-colorscheme="light">
+                                 </div>
+                             </div>
 
                     </div> 
                     </div> 
