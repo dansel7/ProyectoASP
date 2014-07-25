@@ -50,6 +50,7 @@ if(isset($_GET['cmdregistrar']))
                 $_SESSION['facebook'] = true;
                 $_SESSION['twitter'] = false;
                 $_SESSION['imagen'] = $imagen;
+                $_SESSION['email'] = $mail;
                 header('Location:index.php');
             }
             else
@@ -59,7 +60,7 @@ if(isset($_GET['cmdregistrar']))
         }
         else
         {
-            echo $conn->GetLastError();
+            header('Location:registro_facebook.php');
         }
         
         $conn->CloseConection();

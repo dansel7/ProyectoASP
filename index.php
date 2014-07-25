@@ -75,9 +75,19 @@
        
     </script>
     
+   
 
 </head>
 <body>
+     <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=142489082613367&version=v2.0";
+                            fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));</script>
+    
     <!--[if lt IE 7]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
@@ -109,7 +119,7 @@
                     <!--Arrow Navigation-->
                     <a id="prevslide" class="load-item"><i class="fa fa-angle-left"></i></a>
                     <a id="nextslide" class="load-item"><i class="fa fa-angle-right"></i></a>
-
+                    
                 </div> <!-- /.sidebar-menu --><br>
                 <div class="sidebar-menu">
                    
@@ -132,7 +142,7 @@
             <div class="col-md-8 col-sm-12">
                 
                 <div id="menu-container">
-
+                    
                     <div id="menu-1" class="about content">
                         <div class="row">
                             <ul class="tabs">
@@ -155,8 +165,8 @@
                             </ul> <!-- /.tabs -->
                <div class="col-md-12 col-sm-12">
                         <form id="tab1">
-                              <br><br><br>
                             <fieldset class="col-md-4" >
+                                <br><br><br>
                                 <input  type="text" value="" id="notify_buscar" name="notify_buscar" placeholder="Hacer una busqueda" />
                                   <fieldset class="col-md-4">
                                      <section >
@@ -228,25 +238,74 @@
                             </div> <!-- /.col-md-4 -->
                             <div class="col-md-4 col-sm-4">
                                 <div class="member-item">
-                                    <div class="thumb">
-                                        <img src="images/todo/boton_iniciar_sesion.png" >
+                                   <?php
+                                    $login = ' <div class="thumb">
+                                    <img src="images/todo/boton_iniciar_sesion.png" >
                                     </div>
                                     <form id="frm_sesion" method="post" action="login.php">
                                         <br><br>
-                                        <input id="user" type="text" placeholder="Usuario" />
+                                        <input id="user" name="user" type="text" placeholder="Usuario o E-Mail" />
                                         <br>
-                                        <input id="user" type="password" placeholder="Contraseña" />
+                                        <input id="pass" name="pass" type="password" placeholder="Contraseña" />
                                         <input type="submit" value="Acceder" />
-                                    </form>
+                                        <?php
+                                            if(isset($_REQUEST["log_err"]))
+                                            {
+                                                echo "<span>Usuario o contraseña incorrecta</span>";
+                                            }
+                                        ?>
+                                    </form>';
+                                   
+                                   
+                                      if(!isset($_SESSION['id']))
+                                      {
+                                          echo $login; 
+                                      }
+                                      else
+                                      {
+                                          $icon = '';
+                                          $is_fb = FALSE;
+                                          $sesion = null;
+                                          if($_SESSION['facebook'] == true)
+                                          {
+                                              $is_fb = true;
+                                              $icon = "images/todo/fb.png";
+                                              $sesion = ''
+                                                  . '<img src="'.$icon.'" width="50" height="50" />'
+                                                  . '<br><br><div class="fb-share-button" data-href="https://www.facebook.com/GobiernoAbiertoSV?ref=ts&amp;fref=ts"></div>'
+                                                      . '<br><br><div class="fb-like-box" data-href="https://www.facebook.com/GobiernoAbiertoSV?ref=ts&amp;fref=ts" data-width="10" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>'
+                                                      . '';
+                                          }
+                                          else
+                                          {
+                                              $icon = "images/todo/twitter.png";
+                                          }
+                                          
+                                         
+                                          
+                                          echo $sesion;
+                                   
+                                      }
+                                   ?>
+                                   
                                 </div> <!-- /.member-item -->
                             </div> <!-- /.col-md-4 -->
                             <div class="col-md-4 col-sm-4">
                                 <div class="member-item">
-                                    <div class="thumb">
-                                        <img src="images/team/member-3.jpg" alt="Julia - Creative Director">
-                                    </div>
-                                    <h4>Julia</h4>
-                                    <span>Creative Director</span>
+                                    <?php
+                                        
+                                         if(isset($_SESSION['id']))
+                                         {
+                                           
+                                            if($is_fb)
+                                            {
+                                                $sesion = '<span>Danos tu opinion</span><br>'
+                                                        . '<div class="fb-comments" data-href="http://placeholder.com" data-width="200" data-numposts="8" data-colorscheme="light"></div>';
+                                            }
+                                            
+                                            echo $sesion;
+                                         }
+                                    ?>
                                 </div> <!-- /.member-item -->
                             </div> <!-- /.col-md-4 -->
                         </div> <!-- /.row -->
@@ -423,8 +482,8 @@
                                 $( '#notify_vista_med' ).dropdown( {
 					gutter : 60,
                                         stack: false,
-                                        delay: 25,
-                                        slidingIn: 100
+                                        delay: 50,
+                                        slidingIn: 50
                                        /* onOptionSelect: function(opt) {
                                             var valor = (opt.data('value'));
                                             get_medicina(valor , null);

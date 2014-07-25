@@ -90,7 +90,7 @@ class Autorizacion
      * @name $CATEGORIA 
      * @todo establece un nuevo parametro de busqueda a la direccion curl 
      * @example $auth = new autorizacion("products");
-                $auth->Get_Busqueda('arroz' , 'id');
+                $auth->Get_Busqueda(1 , 'id');
      */
     public function Get_AllBusquedaNumber($PARAMETRO , $CATEGORIA)
     {
@@ -98,15 +98,18 @@ class Autorizacion
         $this->load($extP);
     }
     
+    
+       /**
+     * @name $PARAMETRO 
+     * @name $CATEGORIA 
+     * @todo establece un nuevo parametro de busqueda a la direccion curl 
+     * @example $auth = new autorizacion("products");
+                $auth->Get_Busqueda('arroz' , 'id');
+     */
+    
      public function Get_AllBusqueda($PARAMETRO , $CATEGORIA)
     {
         $extP =$this->URL[$this->ID] .'?&q[' .$CATEGORIA. '_cont_any]='.$PARAMETRO ;
-        $this->load($extP);
-    }
-    
-    public function Get_AllBusquedaDate($PARAMETRO , $CATEGORIA)
-    {
-        $extP =$this->URL[$this->ID] .'?&q[' .$CATEGORIA. '_lteq]='.$PARAMETRO ;
         $this->load($extP);
     }
     
