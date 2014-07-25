@@ -194,6 +194,10 @@
                                          <a href="registro_facebook.php" >
                                              <img src="images/todo/Facebook-icon.png" alt="Registro facebook">
                                          </a>
+                                         <br>
+                                         <a href="registro_twitter.php" >
+                                             <img src="images/todo/new_twitter.png" alt="Registro twitter">
+                                         </a>
                                     </div>
                                 </div> <!-- /.member-item -->
                             </div> <!-- /.col-md-4 -->
