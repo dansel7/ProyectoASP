@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 25, 2014 at 06:53 AM
+-- Generation Time: Jul 25, 2014 at 10:21 PM
 -- Server version: 5.5.23
 -- PHP Version: 5.4.12
 
@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `login` (
 --
 
 INSERT INTO `login` (`id_login`, `usuario`, `password`, `estado`) VALUES
+('537399431', 'rolignu', 'linux', 1),
 ('656218221', 'rolando.a.arriaza', 'linux', 1);
 
 -- --------------------------------------------------------
@@ -68,6 +69,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `id_login`, `email`, `nombre`, `pais`, `facebook`, `genero`, `nacimiento`, `twitter`, `foto`) VALUES
+('537399431', 537399431, 'rolignu90@gmail.com', 'âˆ« Rolando Arriaza', 'null', 'null', 'male', '1990-06-18', 'https://twitter.com/rolignu', 'http://pbs.twimg.com/profile_images/451220472122716160/A3OY40gl_normal.jpeg'),
 ('656218221', 656218221, 'rolignu90@gmail.com', 'Rolando Antonio Arriaza', 'San Salvador, El Salvador', 'https://www.facebook.com/rolando.a.arriaza', 'male', '06/18/1990', 'null', 'https://graph.facebook.com/rolando.a.arriaza/picture');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
