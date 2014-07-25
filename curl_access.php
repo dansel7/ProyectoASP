@@ -23,7 +23,9 @@ class Autorizacion
         "products"=>'http://api.gobiernoabierto.gob.sv/products',
         "establecimiento"=>'http://api.gobiernoabierto.gob.sv/shopping_establishments',
         "marcasProd"=>'http://api.gobiernoabierto.gob.sv/product_brands',
-        
+        "info_denuncias"=>'http://api.gobiernoabierto.gob.sv/delation_infos',
+        "inst_denuncias"=>'http://api.gobiernoabierto.gob.sv/delation_institutions',
+		
     );
     
 
