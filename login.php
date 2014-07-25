@@ -13,6 +13,10 @@
      $usuario = $_POST['user'];
      $pass = $_POST['pass'];
  }
+ else
+ {
+     redirect();
+ }
  
   $sql = "SELECT usuarios.id_usuario as id , usuarios.nombre as nombre , "
           . "usuarios.email as email , usuarios.facebook as fb ,"

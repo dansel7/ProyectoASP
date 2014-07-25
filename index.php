@@ -75,6 +75,10 @@
        
     </script>
     
+    <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+     </script>
+    
    
 
 </head>
@@ -279,6 +283,13 @@
                                           else
                                           {
                                               $icon = "images/todo/twitter.png";
+                                              $sesion = ''
+                                                  . '<img src="'.$icon.'" width="50" height="50" />'
+                                                      . '<br><br><span>Danos un Tweet</span><br><br>'
+                                                      . '<a href="https://twitter.com/intent/tweet?screen_name=InfoUtilSV" class="twitter-mention-button" data-lang="en">Tweet to @infoutil</a>'
+                                                      . '<p><a href="https://twitter.com/intent/favorite?tweet_id=99530515043983360">Favoritos</a></p>'
+                                                      . '<a class="twitter-timeline" href="https://twitter.com/InfoUtilSV/favorites" data-widget-id="492765165746540545">Tweets Favoritos de @InfoUtilSV</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
+                                                 
                                           }
                                           
                                          
@@ -299,8 +310,15 @@
                                            
                                             if($is_fb)
                                             {
-                                                $sesion = '<span>Danos tu opinion</span><br>'
+                                                $sesion = '<span>Danos tu opinion</span><br><br><br>'
                                                         . '<div class="fb-comments" data-href="http://infoutil.gobiernoabierto.gob.sv/" data-width="200" data-numposts="8" data-colorscheme="light"></div>';
+                                            }
+                                            else
+                                            {
+                                                $sesion  = '<a class="twitter-timeline" href="https://twitter.com/InfoUtilSV" '
+                                                        . 'data-widget-id="492750463066857472">Tweets por @InfoUtilSV</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");'
+                                                        . '</script>';
+
                                             }
                                             
                                             echo $sesion;
