@@ -7,7 +7,8 @@ class body
     public function __construct(){}
     
     
-    public function get_head()
+    
+    public function get_head($param = null)
     {
         $cabecera = '
             <!DOCTYPE html>
@@ -33,19 +34,20 @@ class body
         <link rel="stylesheet" href="css/templatemo_style.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
      
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-        <script type="text/javascript" src="js/geolocalizacion.js"></script>
+
         <script type="text/javascript" src="js/ajax.js"></script>
         <script src="js/jquery-1.8.2.min.js"></script>
         <script src="js/jqueryfunciones.js"></script>
         
+
         <script>
           function regresar(){
                 window.location="index.php";
             }
            
-        </script>
-        </head><body>';
+        </script> ' 
+                . $param .
+                '</head><body>';
         
         return $cabecera;
     }
@@ -98,7 +100,7 @@ class body
         return $pie;
     }
     
-    public function get_menu()
+    public function get_menu( $param = null)
     {
         $menu =' 
              <div class="container-fluid">
@@ -126,9 +128,7 @@ class body
                 </div> <!-- /.sidebar-menu -->
             </div> <!-- /.col-md-4 -->
              <div class="col-md-8 col-sm-12">
-                <div class="toggle-content" id="tab1">
-                
-             '
+                <div class="toggle-content" id="tab1">'
                 ;
         return $menu;
     }

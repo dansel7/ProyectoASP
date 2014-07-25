@@ -4,10 +4,10 @@
 
   $servidor = array
   (
-     'localhost' => 'www.udbrolignu.com',
+     'localhost' => 'localhost',
      'user' => 'root',
      'password' =>'',
-	 'database' =>'proyectophp'
+     'database' =>'infoutil'
   );
 
 

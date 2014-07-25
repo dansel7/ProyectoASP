@@ -148,8 +148,8 @@
                                 </li>
                             </ul> <!-- /.tabs -->
                <div class="col-md-12 col-sm-12">
-                   <br><br><br>
                         <form id="tab1">
+                              <br><br><br>
                             <fieldset class="col-md-4" >
                                 <input  type="text" value="" id="notify_buscar" name="notify_buscar" placeholder="Hacer una busqueda" />
                                   <fieldset class="col-md-4">
@@ -188,11 +188,13 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
                                 <div class="member-item">
-                                    <div class="thumb">
-                                        <img src="images/team/member-1.jpg" alt="Tracy - Web Designer">
+                                    <h4>Registrate</h4>
+                                    <br>
+                                     <div class="thumb">
+                                         <a href="registro_facebook.php" >
+                                             <img src="images/todo/Facebook-icon.png" alt="Registro facebook">
+                                         </a>
                                     </div>
-                                    <h4>Tracy</h4>
-                                    <span>Web Designer</span>
                                 </div> <!-- /.member-item -->
                             </div> <!-- /.col-md-4 -->
                             <div class="col-md-4 col-sm-4">
