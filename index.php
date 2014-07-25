@@ -247,14 +247,14 @@
                                         <input id="user" name="user" type="text" placeholder="Usuario o E-Mail" />
                                         <br>
                                         <input id="pass" name="pass" type="password" placeholder="Contraseña" />
-                                        <input type="submit" value="Acceder" />
-                                        <?php
-                                            if(isset($_REQUEST["log_err"]))
+                                        <input type="submit" value="Acceder" />';
+                                        
+                                            if(isset($_GET["log_err"]))
                                             {
-                                                echo "<span>Usuario o contraseña incorrecta</span>";
+                                                $login .= "<span>Usuario o contraseña incorrecta</span>";
                                             }
-                                        ?>
-                                    </form>';
+                                        
+                                    $login .= '</form>';
                                    
                                    
                                       if(!isset($_SESSION['id']))
@@ -300,7 +300,7 @@
                                             if($is_fb)
                                             {
                                                 $sesion = '<span>Danos tu opinion</span><br>'
-                                                        . '<div class="fb-comments" data-href="http://placeholder.com" data-width="200" data-numposts="8" data-colorscheme="light"></div>';
+                                                        . '<div class="fb-comments" data-href="http://infoutil.gobiernoabierto.gob.sv/" data-width="200" data-numposts="8" data-colorscheme="light"></div>';
                                             }
                                             
                                             echo $sesion;
