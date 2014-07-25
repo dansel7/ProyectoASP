@@ -1,5 +1,74 @@
 
+
 <?php
+
+$pass_bad = false;
+if(isset($_GET['cmdregistrar']))
+{
+    $pass = $_GET['pass'];
+    $rep_pass = $_GET['rep_pass'];
+    if(strcmp($pass, $rep_pass) !== 0 )
+    {
+        $pass_bad = true;
+    }
+    else{
+        require_once('MysqlConexion.class.php');
+        
+        $id = $_GET['nl_id'];
+        $nombre = $_GET['nl_nombre'];
+        $mail = $_GET['nl_email'];
+        $genero = $_GET['nl_genero'];
+        $pais = $_GET['nl_pais'];
+        $facebook =  $_GET['nl_fb'];
+        $nacimiento = $_GET['nl_birthday'];
+        $usuario =  $_GET['nl_usuario'];
+        $imagen =  $_GET['cmdimg'];
+        
+        $conn = new Consulta();
+        
+        
+         $sql = "INSERT INTO login (id_login , usuario , password , estado)"
+                    . " VALUES('$id' ,'$usuario' ,'$pass' ,1)";
+        
+
+  
+        $conn->GetConsulta($sql);
+        $conn->Resultado();
+        if( $conn->RowsNums() >= 1)
+        {
+            $sql = "INSERT INTO  usuarios (id_usuario, id_login,email, nombre, pais,facebook,genero,nacimiento,twitter,foto)"
+                . " VALUES ('$id' , '$id' ,'$mail', '$nombre' , '$pais' , '$facebook' , '$genero' , '$nacimiento' , 'null' , '$imagen'  )";
+            
+            $conn->GetConsulta($sql);
+            $conn->Resultado();
+            if($conn->RowsNums() >= 1)
+            {
+                session_start();
+                $_SESSION['id'] = $id;
+                $_SESSION['user'] = $usuario;
+                $_SESSION['nombre'] = $nombre;
+                $_SESSION['facebook'] = true;
+                $_SESSION['twitter'] = false;
+                $_SESSION['imagen'] = $imagen;
+                header('Location:index.php');
+            }
+            else
+            {
+                echo "error " . $conn->RowsNums();
+            }
+        }
+        else
+        {
+            echo $conn->GetLastError();
+        }
+        
+        $conn->CloseConection();
+      
+        
+        return;
+    }
+}
+
 include 'body.class.php';
 $cuerpo = new body();
 $script = "<script>
@@ -33,6 +102,7 @@ $script = "<script>
  
   function DatosFacebook() {
     FB.api('/me', function(response) {
+      document.getElementById('nl_id').value = response.id;
       document.getElementById('nl_nombre').value = response.name;
       document.getElementById('nl_email').value = response.email;
       document.getElementById('nl_genero').value = response.gender;
@@ -52,8 +122,23 @@ input
 {
   box-shadow:inset 0 0 2px 2px #888;
 }
+
+.error {
+       font-family:Arial, Helvetica, sans-serif; 
+       font-size:13px;
+       border: 1px solid;
+       margin: 10px 0px;
+       padding:15px 10px 15px 50px;
+       background-repeat: no-repeat;
+       background-position: 10px center;
+}
+
+.error {
+       color: #D8000C;
+       background-color: #FFBABA;
+}
+
 </style>
-        
 
 ";
 
@@ -63,10 +148,11 @@ echo $cuerpo->get_menu();
 
 ?>
 
-<form method="get" action="#">
+<form method="get" action="#" id="frm" >
 <table width="752" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-  	
+  <input type="hidden" name="cmdimg" id="cmdimg" value="" />
+  <input type="hidden" name="nl_id" id="nl_id" value="" />
   </tr>
   <tr>
     <td  class="auto-style1" style="height: 38px">	<br />
@@ -83,14 +169,23 @@ echo $cuerpo->get_menu();
 	 	echo "</span>";
 	 ?>
 	</div>
-
+        
         <?php
             echo "<p align='center'><img src='images/todo/no_img.jpg' alt='imgregistro' width='96' height='106' name='img' /></p><br/>";
         ?>
 	<br />
     </td>
     </tr>
-	<tr>
+    <tr>
+        <td>
+          <?php
+            if($pass_bad == true)
+                echo '<div class="error">Opps!! ha escrito mal la contraseña intentelo denuevo</div>';
+          ?>
+          
+      </td>
+    </tr>
+   <tr>
     <td style="height: 56px">
  
 	  <b class="welcome">Correo Electronico</b> 
@@ -98,7 +193,7 @@ echo $cuerpo->get_menu();
        </td>
   </tr>
     <tr>
-     <input type="hidden" name="cmdimg" id="cmdimg" value="" />
+    
     <td style="height: 56px">
    	  <b class="welcome">Nombre y Apellido</b>&nbsp; 
       <input name="nl_nombre" type="text"  id="nl_nombre" value="" style="width: 400px"/></td>
@@ -132,12 +227,12 @@ echo $cuerpo->get_menu();
    </td>
   <tr>
     <td style="height: 52px"><b class="welcome">Contrase&ntilde;a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-      <input required name="nl_pass" type="password" id="nl_pass" value="" style="width: 200px" />	  
+      <input required name="pass" type="password" id="nl_pass" value="" style="width: 200px" />	  
     </td>
   </tr>
    <tr>
     <td height="52"><p><b class="welcome">Repetir contrase&ntilde;a </b>
-        <input required name="nl_rep_pass" type="password"  id="nl_rep_pass" value="" style="width: 200px" />
+        <input required name="rep_pass" type="password"  id="nl_rep_pass" value="" style="width: 200px" />
         <strong id="validar"></strong></p>      </td>
   </tr>
   <tr>
@@ -147,7 +242,7 @@ echo $cuerpo->get_menu();
    <tr>
     <td height="52" align="center">
       <p>
-        <input name="cmdregistrar" type="submit"  id="cmdregistrar" value="Registrarse"/>
+          <input name="cmdregistrar" type="submit"  id="cmdregistrar" value="Registrarse" />
       </p>
       </td>
   </tr>
@@ -157,6 +252,7 @@ echo $cuerpo->get_menu();
   </tr>
 </table>
 </form>
+
  
 <?php
 

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -188,7 +189,8 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
                                 <div class="member-item">
-                                    <h4>Registrate</h4>
+                                <?php
+                                    $registro ='<h4>Registrate</h4>
                                     <br>
                                      <div class="thumb">
                                          <a href="registro_facebook.php" >
@@ -198,7 +200,25 @@
                                          <a href="registro_twitter.php" >
                                              <img src="images/todo/new_twitter.png" alt="Registro twitter">
                                          </a>
-                                    </div>
+                                    </div>';
+                                    
+                                    if(!isset($_SESSION['id']))
+                                    {
+                                        echo $registro;
+                                    }
+                                    else
+                                    {
+                                        $usuario_data = '<h4>¡Bienvenido!</h4>'
+                                                . '<span>' .$_SESSION['nombre'] . '</span>'
+                                                . '<br><br><img src="' .$_SESSION['imagen'] . '" width="70" height="70"/>'
+                                                . '<a href="logout.php" class="icon-item">
+                                                     <i class="fa fa-camera"></i>
+                                                       <br>Cerrar sesion
+                                                    </a>';
+                                        echo $usuario_data;
+                                    }
+                                    
+                                 ?>
                                 </div> <!-- /.member-item -->
                             </div> <!-- /.col-md-4 -->
                             <div class="col-md-4 col-sm-4">

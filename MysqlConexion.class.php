@@ -266,7 +266,7 @@
 		$this->conexion = mysql_connect(
 		$servidor['localhost'] ,
 		$servidor['user'] ,
-	    $servidor['password']);
+                $servidor['password']);
 		
 		mysql_select_db($servidor['database'] , $this->conexion);
 		
