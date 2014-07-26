@@ -105,8 +105,8 @@
                     
                     <div class="logo-wrapper">
                         <h1 class="logo">
-                            <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv"><img src="images/logo.png" alt="Circle - Free HTML5 Templates">
-                            <span>Gobierno Abierto</br>El Salvador</span></a>
+                            <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv"><img src="images/logo2.png" alt="Circle - Free HTML5 Templates">
+                            </a>
                         </h1>
                     </div> <!-- /.logo-wrapper -->
                     
