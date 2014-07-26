@@ -397,23 +397,9 @@
      
                     <div id="menu-3" class="services content">
 						<div class="row">
-							<ul class="tabs">
-
-                                <li class="col-md-4 col-sm-4">
-                                    <a href="#tab40" class="icon-item">
-                                        <i class="fa fa-search"></i><br>
-										Busqueda de medicamentos
-                                    </a> <!-- /.icon-item -->
-                                </li>
-                                <li class="col-md-4 col-sm-4">
-                                    <a href="#tab50"  class="icon-item">
-                                        <i class="fa fa-medkit"></i><br>
-										Establecimientos Salud Cercanos
-                                    </a> <!-- /.icon-item -->
-                                </li>
-                            </ul> <!-- /.tabs -->
+			
 							<div class="col-md-12 col-sm-12">
-								<div   id="tab40">	
+								
 									
 										<div class="contact-form">
                           
@@ -451,8 +437,8 @@
 											</div>
 										</div>
 									
-								</div>
-								<div  id="tab50">
+								
+	
 									<div class="col-md-12">
 										<div class="toggle-content spacing">
 											<h3>Establecimientos de salud mas cercanos</h3>
@@ -470,11 +456,11 @@
 									
 									<div class="toggle-content spacing">
 									<div class="fb-comments" 
-                                      data-href="http://infoutil.gobiernoabierto.gob.sv/medicines" 
-                                      data-width="900" data-numposts="8" data-colorscheme="light">
+                                                                             accesskey=""data-href="http://infoutil.gobiernoabierto.gob.sv/medicines" 
+                                                                             data-width="600" data-numposts="8" data-colorscheme="light">
 									</div>
-                             </div>
-								</div>
+                                                                         </div>
+							
 							</div>
 						</div> 
                     </div> 
