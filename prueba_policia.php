@@ -18,12 +18,12 @@ $marcasProd=new autorizacion("marcasProd");
 //$valor=isset($_GET['kw'])?$_GET['kw']:'1';
 
 //$auth->Get_AllBusquedaNumber($valor , 'medicine_category_id');
-
-//$auth->Set_Filtro('?lt=id&gt=3');
-//$productosJson = $productos->Get_Respuesta_JasonDecode(true); 
-//$prodPrecioJson = $Prod_sondeo->Get_Respuesta_JasonDecode(true); 
+//$productos->get_Busqueda_Dinamico(array('frijol','azucar'),'name','cont_any');
+//$Prod_sondeo->Get_AllBusquedaNumber( '425' , 'product_id');
+$productosJson = $productos->Get_Respuesta_JasonDecode(true); 
+$prodPrecioJson = $Prod_sondeo->Get_Respuesta_JasonDecode(true); 
 $establecJson = $establecimientos->Get_Respuesta_JasonDecode(true); 
-//$marcasProdJson = $marcasProd->Get_Respuesta_JasonDecode(true); 
+$marcasProdJson = $marcasProd->Get_Respuesta_JasonDecode(true); 
 
 $i=0;
 /*
@@ -69,8 +69,8 @@ foreach($prodPrecioJson as $key=>$value)
 //$jason_encode = $auth->Get_Respuesta_Jason();
 
 echo "<PRE>";
-$productos->Get_AllBusquedaNumber( 1 , 'id');
-print_r($establecJson);
+
+print_r($prodPrecioJson);
 
 echo "</PRE>";
 

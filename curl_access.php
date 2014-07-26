@@ -87,7 +87,34 @@ class Autorizacion
 		
     }
     
-      /**
+    public function set_or()
+    {
+        $extP =$this->URL[$this->ID] .'?&q[name_or]';
+        $this->load($extP);
+		
+    }
+     /**
+     * @name $PARAMETRO 
+     * @todo establece un nuevo parametro de busqueda a la direccion curl 
+     * @example $auth = new autorizacion("products");
+                $auth->Get_Busqueda('arroz');
+     */
+    public function get_Busqueda_Dinamico($PARAMETRO , $CATEGORIA, $PREDICADO)
+    {
+        $v=count($PARAMETRO);
+        if($v>1){        
+        $extP =$this->URL[$this->ID].'?&q[' .$CATEGORIA. '_'.$PREDICADO.'][]='.$PARAMETRO[0];
+        for($i=1;$i<$v;$i++){
+            $extP.='&q[' .$CATEGORIA. '_'.$PREDICADO.'][]='.$PARAMETRO[$i];
+        }
+        }else{
+        $extP =$this->URL[$this->ID].'?&q[' .$CATEGORIA. '_'.$PREDICADO.'][]='.$PARAMETRO;    
+        }
+        
+              
+        $this->load($extP);
+    }
+     /**
      * @name $PARAMETRO 
      * @name $CATEGORIA 
      * @todo establece un nuevo parametro de busqueda a la direccion curl 

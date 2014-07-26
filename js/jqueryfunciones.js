@@ -55,11 +55,11 @@ var loadcontent = function(p, num_total){
 				
 			for(var i in dataJson){
 				$("#list-items").append('<li id="item-' + num +'">' 
-                                   +'<h5 style="margin-bottom:0">' +  dataJson[i].producto +'</h5>' +
-                                    'Marca: ' + dataJson[i].marca +'<br>' +
-                                    'Precio: $' + dataJson[i].price +'<br>' +
-                                    'Lugar: ' + dataJson[i].establecimiento +'<br>' +
-                                    'Sondeo: ' + dataJson[i].sondeo.substr(0,10) + '<br>'
+                                   +'<h5 style="margin-bottom:0">' +  dataJson[i].name +'</h5>' +
+                                    'Precio: $' + dataJson[i].precio +'<br>' +
+                                    'Precio Venta: $' + dataJson[i].precio_venta +'<br>' +
+                                    'Sondeo: ' + dataJson[i].sondeo + '<br>' +
+                                    'Fecha Actualizacion: ' + dataJson[i].update.substr(0,10) + '<br>' 
                                     );
 					
 				num++;

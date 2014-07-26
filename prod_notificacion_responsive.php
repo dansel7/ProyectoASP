@@ -9,15 +9,55 @@ $establecimientos=new autorizacion("establecimiento");
 $marcasProd=new autorizacion("marcasProd");
 $Prod_sondeo = new autorizacion("product_probes");
 
-$Prod_sondeo->Set_Filtro('?per_page=5&page=1');
+$productos->Set_Filtro('?per_page=10&page=1');
+$productos->get_Busqueda_Dinamico(array('frijol','azucar','arroz'),'name','cont_any');
 
+//$prodPrecioJson = $Prod_sondeo->Get_Respuesta_JasonDecode(true);
 $productosJson = $productos->Get_Respuesta_JasonDecode(true); 
-$prodPrecioJson = $Prod_sondeo->Get_Respuesta_JasonDecode(true); 
-$establecJson = $establecimientos->Get_Respuesta_JasonDecode(true); 
-$marcasProdJson = $marcasProd->Get_Respuesta_JasonDecode(true); 	
+//$establecJson = $establecimientos->Get_Respuesta_JasonDecode(true); 
+//$marcasProdJson = $marcasProd->Get_Respuesta_JasonDecode(true); 
 
+/*
+  $registro = array();
+   $count = 0;
+   $count_m = 0;
+   $arreglo_prod = array();
+   $arreglo_establec = array();
+   $arreglo_marca = array();
+   $end = false;
+   $pag =1;
+   
+   //set_time_limit(100);
+   
+   while($end != true){
+        $productos->Set_Filtro('?per_page=100&page=' . $pag);
+        $jason_decode = $productos->Get_Respuesta_JasonDecode(true); 
+        if(!empty($jason_decode))
+            array_push($arreglo_prod, $jason_decode);
+        else $end = true;
+        $pag++;
+   }
+    $pag =1;
+  while($end != true){
+        $establecimientos->Set_Filtro('?per_page=100&page=' . $pag);
+        $jason_decode = $establecimientos->Get_Respuesta_JasonDecode(true); 
+        if(!empty($jason_decode))
+            array_push($arreglo_establec, $jason_decode);
+        else $end = true;
+        $pag++;
+   }
+    $pag =1;
+     while($end != true){
+        $marcasProd->Set_Filtro('?per_page=100&page=' . $pag);
+        $jason_decode = $marcasProd->Get_Respuesta_JasonDecode(true); 
+        if(!empty($jason_decode))
+            array_push($arreglo_marca, $jason_decode);
+        else $end = true;
+        $pag++;
+   }
+   */
 $i=0;
-foreach($prodPrecioJson as $key=>$value)
+foreach($productosJson as $key=>$value)
     {
         $decode = $value ;
         
@@ -25,28 +65,23 @@ foreach($prodPrecioJson as $key=>$value)
         {
             if(!is_array($v)){
                 switch ($k) 
-                {
-                    case 'product_id':
-                        $productos->Get_AllBusquedaNumber( $v , 'id');
-                        $name=$productos->Get_Respuesta_JasonDecode(true);
-                        $filtro[$i]['producto'] = $name[0]['name']; 
+               {
+                     case 'name':
+                        $filtro[$i]['name'] = $v ;
                         break;
-                     case 'price':
-                        $filtro[$i]['price'] = $v ;
+                     case 'id':
+                        $Prod_sondeo->Get_AllBusquedaNumber( $v , 'product_id');
+                        $Prod_sondeo->get_Busqueda_Dinamico('', 'price','present');
+                        $array=$Prod_sondeo->Get_Respuesta_JasonDecode(true);
+                       //echo "<br><br>";
+                       // if(!empty($array)){
+                        $filtro[$i]['precio'] = $array[0]['price']; 
+                        $filtro[$i]['precio_venta'] = $array[0]['offer_price']; 
+                        $filtro[$i]['sondeo'] = $array[0]['probe_date']; 
+                        $filtro[$i]['update'] = $array[0]['updated_at'];
+                        //}
                         break;
-                    case 'product_brand_id':
-                        $marcasProd->Get_AllBusquedaNumber( $v , 'id');
-                        $name=$marcasProd->Get_Respuesta_JasonDecode(true);
-                        $filtro[$i]['marca'] = $name[0]['name'];   
-                        break;
-                    case 'shopping_establishment_id':
-                        $establecimientos->Get_AllBusquedaNumber( $v , 'id');
-                        $name=$establecimientos->Get_Respuesta_JasonDecode(true);
-                        $filtro[$i]['establecimiento'] =$name[0]['name'];   
-                        break;
-                     case 'updated_at':
-                        $filtro[$i]['sondeo'] = $v;
-                        break;
+                    
                     default :
                         break;
                 }
@@ -60,5 +95,5 @@ $jason_encode = json_encode($filtro);
 
 
 echo $jason_encode;
-	
+	   
 ?>
