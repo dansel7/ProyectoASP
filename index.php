@@ -152,7 +152,7 @@
                             <ul class="tabs">
                                 <li class="col-md-4 col-sm-4">
                                     <a href="#tab1" class="icon-item" >
-                                        <i class="fa fa-umbrella"></i>
+                                        <i class="fa fa-plus-square"></i>
                                         <div id="notify_medicina"></div>
                                     </a> <!-- /.icon-item -->
                                 </li>
@@ -396,66 +396,87 @@
                     </div> <!-- /.services -->
      
                     <div id="menu-3" class="services content">
-                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="contact-form">
+						<div class="row">
+							<ul class="tabs">
+
+                                <li class="col-md-4 col-sm-4">
+                                    <a href="#tab40" class="icon-item">
+                                        <i class="fa fa-search"></i><br>
+										Busqueda de medicamentos
+                                    </a> <!-- /.icon-item -->
+                                </li>
+                                <li class="col-md-4 col-sm-4">
+                                    <a href="#tab50"  class="icon-item">
+                                        <i class="fa fa-medkit"></i><br>
+										Establecimientos Salud Cercanos
+                                    </a> <!-- /.icon-item -->
+                                </li>
+                            </ul> <!-- /.tabs -->
+							<div class="col-md-12 col-sm-12">
+								<div   id="tab40">	
+									
+										<div class="contact-form">
                           
                                     
-                                <div class="row">
-                                <form action="#" method="post">
+											<div class="row">
+												<form action="#" method="post">
                                    
-                                <fieldset class="col-md-4">
-                                     <section >
-                                         <select id="medicina_select" name="medicina_select" >
-                                        <?php
-                                            require_once 'medicina_selector.php';
-                                        ?>
-                                    </select>
-                                  </section>
-                                </fieldset>
-                                    <fieldset class="col-md-4">
-                                     </fieldset>
-                                     <fieldset class="col-md-4">
-                                        <input id="name" type="text" 
-                                                name="txt_med" id="txt_med" 
-                                                placeholder="Buscar una medicina" onkeyup="get_medicina(null , this.value);" />
-                                     </fieldset>
-                                 </form>
-                                </div></div>
-                                <div class="toggle-content spacing">
-                                    <h3>Medicamentos</h3>
-                                     <div id="informacion-medicamentos">
+													<fieldset class="col-md-4">
+														<section >
+															<select id="medicina_select" name="medicina_select" >
+															<?php
+																require_once 'medicina_selector.php';
+															?>
+															</select>
+														</section>
+													</fieldset>
+													<fieldset class="col-md-4">
+													</fieldset>
+													<fieldset class="col-md-4">
+														<input id="name" type="text" 
+															name="txt_med" id="txt_med" 
+															placeholder="Buscar una medicina" onkeyup="get_medicina(null , this.value);" />
+													</fieldset>
+												</form>
+											</div>
+										</div>
+										<div class="toggle-content spacing">
+											<h3>Medicamentos</h3>
+											<div id="informacion-medicamentos">
                                  
-                                         <h3>
-                                             <img src="images/medicina.png" width="100" height="100" />
-                                             Favor Seleccione una categoria o realice una busqueda
-                                         </h3>
-                                    </div>
-                                </div>
-                            </div> 
-                            <div class="col-md-12">
-                                <div class="toggle-content spacing">
-                                    <h3>Establecimientos de salud mas cercanos</h3>
-                                     <div id="informacion-hospital">
+												<h3>
+												<img src="images/medicina.png" width="100" height="100" />
+												Favor Seleccione una categoria o realice una busqueda
+												</h3>
+											</div>
+										</div>
+									
+								</div>
+								<div  id="tab50">
+									<div class="col-md-12">
+										<div class="toggle-content spacing">
+											<h3>Establecimientos de salud mas cercanos</h3>
+											<div id="informacion-hospital">
                                          
-                                    </div>
-                                </div>
-                            </div> 
+											</div>
+										</div>
+									</div> 
                             
-                            <div class="col-md-12">
-                                <div class="google-map">
-                                    <div id="map-canvas-h" ></div> 
-                                </div> 
-                            </div> 
-                             
-                             <div class="toggle-content spacing">
-                                 <div class="fb-comments" 
+									<div class="col-md-12">
+										<div class="google-map">
+											<div id="map-canvas-h" ></div> 
+										</div> 
+									</div> 
+									
+									<div class="toggle-content spacing">
+									<div class="fb-comments" 
                                       data-href="http://infoutil.gobiernoabierto.gob.sv/medicines" 
                                       data-width="900" data-numposts="8" data-colorscheme="light">
-                                 </div>
+									</div>
                              </div>
-
-                    </div> 
+								</div>
+							</div>
+						</div> 
                     </div> 
 
                     <div id="menu-4" class="contact content">
