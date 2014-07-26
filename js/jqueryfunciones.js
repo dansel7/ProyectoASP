@@ -1,7 +1,28 @@
 
     
      //TODO SCRIPT QUE INICIARA POR MEDIO DE JQUERY POR FAVOR COLOCAR ACA
-
+     
+    function get_med_act(busqueda)
+    {
+        
+        var parametros={
+           'busqueda': busqueda
+        };
+        
+         $.ajax({
+                data:  parametros,
+                url:   'medicina_selector_resp.php',
+                type:  'post',
+                beforeSend: function () {
+                    $( "#informacion-medicamentos-resp").html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');     
+                },
+                success:  function (response) {
+                     $( "#informacion-medicamentos-resp" ).html(response);
+                 }
+                
+            });
+        
+    }
     
     function get_medicina(categoria , busqueda)
     {
@@ -24,15 +45,8 @@
             });
     }
     
-    function h()
-    {
-        alert();
-    }
-    
-     function carga_notificaciones()
-     {
-          alert();
-     }
+ 
+
     
         
 function goToByScroll(id){

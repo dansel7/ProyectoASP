@@ -171,22 +171,19 @@
                         <form id="tab1">
                             <fieldset class="col-md-4" >
                                 <br><br><br>
-                                <input  type="text" value="" id="notify_buscar" name="notify_buscar" placeholder="Hacer una busqueda" />
-                                  <fieldset class="col-md-4">
-                                     <section >
-                                         <select id="notify_vista_med" name="notify_vista_med" >
-                                             <option value="-1" selected>Seleccionar Vista</option>
-                                             <option value="1">Recientes</option>
-                                             <option value="2">Ultimos 6 meses</option>
-                                             <option value="3">Ultimo año</option>
-                                    </select>
-                                  </section> 
-                                </fieldset>
+         
+                                
+                                     <input  type="text" value="" id="notify_buscar" name="notify_buscar" placeholder="Hacer una busqueda"  />
+                                
+                                     <input type="button" name="cmd_buscar_med" id="cmd_buscar_med" value="Buscar" onclick="get_med_act(document.getElementById('notify_buscar').value);" />
                              </fieldset>
                             <div class="toggle-content" id="show_notify_med" >
-                                  <h3>Our History</h3>
-                                   <p>Circle is free HTML5 template from templatemo. Feel free to download, modify and use this template for your websites. You can easily change icons by <a rel="nofollow" href="http://fontawesome.info/font-awesome-icon-world-map/">Font Awesome</a>. Example: <strong>&lt;i class=&quot;fa fa-camera&quot;&gt;&lt;/i&gt;</strong> 
-                                   <br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, repellat, aspernatur nihil quasi commodi laboriosam cumque est minus minima sit dicta adipisci possimus magnam. Sit, repudiandae, ut, error, voluptates aspernatur inventore quo earum reiciendis dolorum amet perspiciatis adipisci itaque voluptatum iste laboriosam sapiente hic autem blanditiis doloribus nihil.</p>
+                                <div id="informacion-medicamentos-resp"> 
+			       <h3>
+                                    <img src="images/medicina.png" width="100" height="100" />
+                                            Favor Seleccione una categoria o realice una busqueda
+				</h3>
+				</div> 
                              </div>
                             </form>
                                 
@@ -519,16 +516,7 @@
                                         }
 				});
                                 
-                                $( '#notify_vista_med' ).dropdown( {
-					gutter : 60,
-                                        stack: false,
-                                        delay: 50,
-                                        slidingIn: 50
-                                       /* onOptionSelect: function(opt) {
-                                            var valor = (opt.data('value'));
-                                            get_medicina(valor , null);
-                                        }*/
-				});
+                            
                                 
                               carga_notificaciones();
 		});
@@ -553,6 +541,28 @@
                         });
           
                 }
+                
+                function get_med_act(busqueda)
+    {
+        
+        var parametros={
+           'busqueda': busqueda
+        };
+        
+         $.ajax({
+                data:  parametros,
+                url:   'medicina_selector_resp.php',
+                type:  'post',
+                beforeSend: function () {
+                    $( "#informacion-medicamentos-resp").html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');     
+                },
+                success:  function (response) {
+                     $( "#informacion-medicamentos-resp" ).html(response);
+                 }
+                
+            });
+        
+    }
 
 		</script>
                
