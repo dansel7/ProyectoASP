@@ -105,8 +105,8 @@
                     
                     <div class="logo-wrapper">
                         <h1 class="logo">
-                            <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv"><img src="images/logo.png" alt="Circle - Free HTML5 Templates">
-                            <span>Gobierno Abierto</br>El Salvador</span></a>
+                            <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv"><img src="images/logo2.png" alt="Circle - Free HTML5 Templates">
+                            </a>
                         </h1>
                     </div> <!-- /.logo-wrapper -->
                     
@@ -171,22 +171,19 @@
                         <form id="tab1">
                             <fieldset class="col-md-4" >
                                 <br><br><br>
-                                <input  type="text" value="" id="notify_buscar" name="notify_buscar" placeholder="Hacer una busqueda" />
-                                  <fieldset class="col-md-4">
-                                     <section >
-                                         <select id="notify_vista_med" name="notify_vista_med" >
-                                             <option value="-1" selected>Seleccionar Vista</option>
-                                             <option value="1">Recientes</option>
-                                             <option value="2">Ultimos 6 meses</option>
-                                             <option value="3">Ultimo año</option>
-                                    </select>
-                                  </section> 
-                                </fieldset>
+         
+                                
+                                     <input  type="text" value="" id="notify_buscar" name="notify_buscar" placeholder="Hacer una busqueda"  />
+                                
+                                     <input type="button" name="cmd_buscar_med" id="cmd_buscar_med" value="Buscar" onclick="get_med_act(document.getElementById('notify_buscar').value,null);" />
                              </fieldset>
                             <div class="toggle-content" id="show_notify_med" >
-                                  <h3>Our History</h3>
-                                   <p>Circle is free HTML5 template from templatemo. Feel free to download, modify and use this template for your websites. You can easily change icons by <a rel="nofollow" href="http://fontawesome.info/font-awesome-icon-world-map/">Font Awesome</a>. Example: <strong>&lt;i class=&quot;fa fa-camera&quot;&gt;&lt;/i&gt;</strong> 
-                                   <br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, repellat, aspernatur nihil quasi commodi laboriosam cumque est minus minima sit dicta adipisci possimus magnam. Sit, repudiandae, ut, error, voluptates aspernatur inventore quo earum reiciendis dolorum amet perspiciatis adipisci itaque voluptatum iste laboriosam sapiente hic autem blanditiis doloribus nihil.</p>
+                                <div id="informacion-medicamentos-resp"> 
+			       <h3>
+                                    <img src="images/medicina.png" width="100" height="100" />
+                                            Favor Seleccione una categoria o realice una busqueda
+				</h3>
+				</div> 
                              </div>
                             </form>
                                 
@@ -231,7 +228,7 @@
                                                 . '<span>' .$_SESSION['nombre'] . '</span>'
                                                 . '<br><br><img src="' .$_SESSION['imagen'] . '" width="70" height="70"/>'
                                                 . '<a href="logout.php" class="icon-item">
-                                                     <i class="fa fa-camera"></i>
+                                                     <i class="fa fa-lock"></i>
                                                        <br>Cerrar sesion
                                                     </a>';
                                         echo $usuario_data;
@@ -381,7 +378,7 @@
                               <div class="toggle-content spacing">
                                  <div class="fb-comments" 
                                       data-href="http://infoutil.gobiernoabierto.gob.sv/products?search%5Bcategory_id%5D=9" 
-                                      data-width="900" data-numposts="8" data-colorscheme="light">
+                                      data-width="600" data-numposts="8" data-colorscheme="light">
                                  </div>
                              </div>
 
@@ -516,26 +513,18 @@
                                         onOptionSelect: function(opt) {
                                             var valor = (opt.data('value'));
                                             get_medicina(valor , null);
+                                            
                                         }
 				});
                                 
-                                $( '#notify_vista_med' ).dropdown( {
-					gutter : 60,
-                                        stack: false,
-                                        delay: 50,
-                                        slidingIn: 50
-                                       /* onOptionSelect: function(opt) {
-                                            var valor = (opt.data('value'));
-                                            get_medicina(valor , null);
-                                        }*/
-				});
-                                
+                            
+                              
                               carga_notificaciones();
 		});
                 
                 function carga_notificaciones()
                 {
-                    
+                    get_med_act('','init');
                     //cargando las notificaciones medicina y alimentos
                      var parametros = {
                         'medicina' : 'true'
@@ -553,6 +542,29 @@
                         });
           
                 }
+                
+                function get_med_act(busqueda, norm)
+               {
+        
+                var parametros={
+                    'busqueda': busqueda,
+                    'norm':norm
+                };
+        
+                $.ajax({
+                    data:  parametros,
+                    url:   'medicina_selector_resp.php',
+                    type:  'post',
+                    beforeSend: function () {
+                        $( "#informacion-medicamentos-resp").html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');     
+                    },
+                    success:  function (response) {
+                         $( "#informacion-medicamentos-resp" ).html(response);
+                    }
+                
+                });
+        
+    }
 
 		</script>
                

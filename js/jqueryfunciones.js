@@ -1,6 +1,7 @@
 
     
      //TODO SCRIPT QUE INICIARA POR MEDIO DE JQUERY POR FAVOR COLOCAR ACA
+     
 
     
     function get_medicina(categoria , busqueda)
@@ -24,15 +25,8 @@
             });
     }
     
-    function h()
-    {
-        alert();
-    }
-    
-     function carga_notificaciones()
-     {
-          alert();
-     }
+ 
+
     
         
 function goToByScroll(id){
