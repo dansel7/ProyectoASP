@@ -175,7 +175,7 @@
                                 
                                      <input  type="text" value="" id="notify_buscar" name="notify_buscar" placeholder="Hacer una busqueda"  />
                                 
-                                     <input type="button" name="cmd_buscar_med" id="cmd_buscar_med" value="Buscar" onclick="get_med_act(document.getElementById('notify_buscar').value);" />
+                                     <input type="button" name="cmd_buscar_med" id="cmd_buscar_med" value="Buscar" onclick="get_med_act(document.getElementById('notify_buscar').value,null);" />
                              </fieldset>
                             <div class="toggle-content" id="show_notify_med" >
                                 <div id="informacion-medicamentos-resp"> 
@@ -228,7 +228,7 @@
                                                 . '<span>' .$_SESSION['nombre'] . '</span>'
                                                 . '<br><br><img src="' .$_SESSION['imagen'] . '" width="70" height="70"/>'
                                                 . '<a href="logout.php" class="icon-item">
-                                                     <i class="fa fa-camera"></i>
+                                                     <i class="fa fa-lock"></i>
                                                        <br>Cerrar sesion
                                                     </a>';
                                         echo $usuario_data;
@@ -378,7 +378,7 @@
                               <div class="toggle-content spacing">
                                  <div class="fb-comments" 
                                       data-href="http://infoutil.gobiernoabierto.gob.sv/products?search%5Bcategory_id%5D=9" 
-                                      data-width="900" data-numposts="8" data-colorscheme="light">
+                                      data-width="600" data-numposts="8" data-colorscheme="light">
                                  </div>
                              </div>
 
@@ -513,17 +513,18 @@
                                         onOptionSelect: function(opt) {
                                             var valor = (opt.data('value'));
                                             get_medicina(valor , null);
+                                            
                                         }
 				});
                                 
                             
-                                
+                              
                               carga_notificaciones();
 		});
                 
                 function carga_notificaciones()
                 {
-                    
+                    get_med_act('','init');
                     //cargando las notificaciones medicina y alimentos
                      var parametros = {
                         'medicina' : 'true'
@@ -542,25 +543,26 @@
           
                 }
                 
-                function get_med_act(busqueda)
-    {
+                function get_med_act(busqueda, norm)
+               {
         
-        var parametros={
-           'busqueda': busqueda
-        };
+                var parametros={
+                    'busqueda': busqueda,
+                    'norm':norm
+                };
         
-         $.ajax({
-                data:  parametros,
-                url:   'medicina_selector_resp.php',
-                type:  'post',
-                beforeSend: function () {
-                    $( "#informacion-medicamentos-resp").html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');     
-                },
-                success:  function (response) {
-                     $( "#informacion-medicamentos-resp" ).html(response);
-                 }
+                $.ajax({
+                    data:  parametros,
+                    url:   'medicina_selector_resp.php',
+                    type:  'post',
+                    beforeSend: function () {
+                        $( "#informacion-medicamentos-resp").html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');     
+                    },
+                    success:  function (response) {
+                         $( "#informacion-medicamentos-resp" ).html(response);
+                    }
                 
-            });
+                });
         
     }
 
