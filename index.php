@@ -89,7 +89,15 @@
 
 </head>
 <body>
-     
+     <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=142489082613367&version=v2.0";
+                            fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));</script>
+    
     <!--[if lt IE 7]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
     <![endif]-->
@@ -111,7 +119,7 @@
                     <div class="menu-wrapper">
                         <ul class="menu">
                             <li><a class="homebutton" href="#">Home</a></li>
-                            <li><a class="show-1" href="#">Noticias</a></li>
+                            <li><a class="show-1" href="#"> Noticias</a></li>
                             <li><a class="show-2" href="#" onclick="food_market_map();">Alimentos</a></li>
                             <li><a class="show-3" href="#" onclick="hospital_map();" >Salud</a></li>
                             <li><a class="show-4" href="#" onclick="police_map();"  >Seguridad</a></li>
@@ -123,7 +131,8 @@
                     <a id="prevslide" class="load-item"><i class="fa fa-angle-left"></i></a>
                     <a id="nextslide" class="load-item"><i class="fa fa-angle-right"></i></a>
                     
-                </div> <!-- /.sidebar-menu -->
+                </div> <!-- /.sidebar-menu --><br>
+             
             </div> <!-- /.col-md-4 -->
 
             <div class="col-md-8 col-sm-12">
@@ -154,9 +163,12 @@
                         <form id="tab1">
                             <fieldset class="col-md-4" >
                                 <br><br><br>
-                                     <input  type="text" value="" id="notify_buscar" name="notify_buscar" placeholder="Hacer una busqueda"/>
+         
+                                
+                                     <input  type="text" value="" id="notify_buscar" name="notify_buscar" placeholder="Hacer una busqueda"  />
+                                
                                      <input type="button" name="cmd_buscar_med" id="cmd_buscar_med" value="Buscar" onclick="get_med_act(document.getElementById('notify_buscar').value,null);" />
-                            </fieldset>
+                             </fieldset>
                             <div class="toggle-content" id="show_notify_med" >
                                 <div id="informacion-medicamentos-resp"> 
 			       <h3>
@@ -482,7 +494,7 @@
                                 <form>
                                     <section>
                                             <select id="select_localizar" name="select_localizar">
-                                                <option value='veterinary_care' selected >Seleccione una categoria</option>
+                                                <option value='veterinary_care' selected >Seleccionar categoria</option>
                                                 <option value='veterinary_care'  >Veterinarios</option>
                                                 <option value='school'>Colegios</option>
                                                 <option value='shopping_mall'>Centros Comerciales</option>
@@ -530,15 +542,7 @@
             </div><!-- /.footer --> 
         </div>
     </div> <!-- /.container-fluid -->
-<div id="fb-root"></div>
-        <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                        js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=142489082613367&version=v2.0";
-                            fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));</script>
-    
+
   	
     <script type="text/javascript">
 			
@@ -617,7 +621,7 @@
                 
                 });
         
-                }
+    }
 
 		</script>
                
