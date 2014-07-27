@@ -144,7 +144,7 @@
                             <ul class="tabs">
                                 <li class="col-md-4 col-sm-4">
                                     <a href="#tab1" class="icon-item" >
-                                        <i class="fa fa-plus-square"></i>
+                                        <i class="fa fa-user-md"></i>
                                         <div id="notify_medicina"></div>
                                     </a> <!-- /.icon-item -->
                                 </li>
@@ -386,10 +386,21 @@
      
                     <div id="menu-3" class="services content">
 						<div class="row">
-			
+							<ul class="tabs">
+                                <li class="col-md-4 col-sm-4">
+                                    <a href="#tab7" class="icon-item">
+                                        <i class="fa fa-search"></i>
+                                    </a> <!-- /.icon-item -->
+                                </li>
+                                <li class="col-md-4 col-sm-4">
+                                    <a href="#tab8" class="icon-item">
+                                        <i class="fa fa-medkit"></i>
+                                    </a> <!-- /.icon-item -->
+                                </li>
+                            </ul> <!-- /.tabs -->
 							<div class="col-md-12 col-sm-12">
 								
-									
+									<div  id="tab7">
 										<div class="contact-form">
                           
                                     
@@ -425,9 +436,9 @@
 												</h3>
 											</div>
 										</div>
-									
+									</div>
 								
-	
+									<div  id="tab8">
 									<div class="col-md-12">
 										<div class="toggle-content spacing">
 											<h3>Establecimientos de salud mas cercanos</h3>
@@ -450,7 +461,7 @@
 									</div>
                                                                          </div>
 							
-							</div>
+							</div></div>
 						</div> 
                     </div> 
 
