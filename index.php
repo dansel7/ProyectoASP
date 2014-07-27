@@ -77,12 +77,7 @@
             set_tipo('grocery_or_supermarket');
             initialize();
        }
-       function locale()
-       {
-           
-           set_tipo('veterinary_care');
-            initialize();
-       }
+      
 
        
     </script>
@@ -494,9 +489,27 @@
                         <div class="row">
                           
                             <div class="col-md-12">
+                                <form>
+                                    <selection>
+                                            <select id="select_localizar" name="select_localizar">
+                                                <option value='veterinary_care' selected >Veterinarios</option>
+                                                <option value='school'>Colegios</option>
+                                                <option value='shopping_mall'>Centros Comerciales</option>
+                                                <option value='restaurant'>Restaurantes</option>
+                                                <option value='pharmacy'>Farmacias</option>
+                                                <option value='place_of_worship'>Lugares de Trabajo</option>
+                                                <option value='night_club'>Diversion Nocturna</option>
+                                                <option value='movie_theater'>Cines</option>
+                                                <option value='local_government_office'>Oficinas Gubernamentales</option>
+                                                <option value='gym'>Gimnasios</option>
+                                                <option value='gas_station'>Estaciones de Gasolina</option>
+                                                <option value='food'>Areas de comida</option>
+                                        </select>
+                                    </selection>
+                                </form>
                                 <div class="toggle-content text-center spacing">
                                     <h3>Localizate</h3>
-                                    <a href="#" onclick="locale();">DALE</a>
+                                   
                                 </div>
                                 <div class="toggle-content  spacing">    
                                      <div id="informacion-localizar">
@@ -542,6 +555,18 @@
                                             var valor = (opt.data('value'));
                                             get_medicina(valor , null);
                                             
+                                        }
+				});
+                                
+                                $( '#select_localizar' ).dropdown( {
+					gutter : 60,
+                                        stack: false,
+                                        delay: 25,
+                                        slidingIn: 100,
+                                        onOptionSelect: function(opt) {
+                                            var valor = (opt.data('value'));
+                                            set_tipo(valor);
+                                            initialize();  
                                         }
 				});
                                 
