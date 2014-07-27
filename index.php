@@ -497,7 +497,7 @@
                                                 <option value='shopping_mall'>Centros Comerciales</option>
                                                 <option value='restaurant'>Restaurantes</option>
                                                 <option value='pharmacy'>Farmacias</option>
-                                                <option value='place_of_worship'>Lugares de Trabajo</option>
+                                                <option value='place_of_worship'>Diversos</option>
                                                 <option value='night_club'>Diversion Nocturna</option>
                                                 <option value='movie_theater'>Cines</option>
                                                 <option value='local_government_office'>Oficinas Gubernamentales</option>
