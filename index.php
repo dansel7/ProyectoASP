@@ -48,6 +48,11 @@
         margin: 0px;
         padding: 100px
       }
+       #map-localizar {
+        height: 100%;
+        margin: 0px;
+        padding: 100px
+      }
     input
     {
         box-shadow:inset 0 0 2px 2px #888;
@@ -118,6 +123,7 @@
                             <li><a class="show-2" href="#" onclick="food_market_map();">Alimentos</a></li>
                             <li><a class="show-3" href="#" onclick="hospital_map();" >Salud</a></li>
                             <li><a class="show-4" href="#" onclick="police_map();"  >Seguridad</a></li>
+                            <li><a class="show-5" href="#" >Localizate</a></li>
                         </ul> <!-- /.menu -->
                         <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
                     </div> <!-- /.menu-wrapper -->
@@ -475,7 +481,7 @@
                           
                             <div class="col-md-12">
                                 <form>
-                                    <selection>
+                                    <section>
                                             <select id="select_localizar" name="select_localizar">
                                                 <option value='veterinary_care' selected >Veterinarios</option>
                                                 <option value='school'>Colegios</option>
@@ -490,7 +496,7 @@
                                                 <option value='gas_station'>Estaciones de Gasolina</option>
                                                 <option value='food'>Areas de comida</option>
                                         </select>
-                                    </selection>
+                                    </section>
                                 </form>
                                 <div class="toggle-content text-center spacing">
                                     <h3>Localizate</h3>
@@ -549,6 +555,7 @@
                                         delay: 25,
                                         slidingIn: 100,
                                         onOptionSelect: function(opt) {
+                                           
                                             var valor = (opt.data('value'));
                                             set_tipo(valor);
                                             initialize();  
