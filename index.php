@@ -104,7 +104,7 @@
                     
                     <div class="logo-wrapper">
                         <h1 class="logo">
-                            <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv"><img src="images/logo2.png" alt="Circle - Free HTML5 Templates">
+                            <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv"><img src="images/logo2.png" alt="GoodInfo">
                             </a>
                         </h1>
                     </div> <!-- /.logo-wrapper -->
@@ -112,7 +112,7 @@
                     <div class="menu-wrapper">
                         <ul class="menu">
                             <li><a class="homebutton" href="#">Home</a></li>
-                            <li><a class="show-1" href="#">Lo Nuevo</a></li>
+                            <li><a class="show-1" href="#">Noticias</a></li>
                             <li><a class="show-2" href="#" onclick="food_market_map();">Alimentos</a></li>
                             <li><a class="show-3" href="#" onclick="hospital_map();" >Salud</a></li>
                             <li><a class="show-4" href="#" onclick="police_map();"  >Seguridad</a></li>
