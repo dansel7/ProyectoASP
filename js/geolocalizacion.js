@@ -107,7 +107,13 @@ var iconos =[
     'images/google_icon/shopping.png',
     'images/google_icon/restaurant.png',
     'images/google_icon/farmacia.png',
-    'images/google_icon/trabajo.png'
+    'images/google_icon/trabajo.png',
+    'images/google_icon/trabajo.png',
+    'images/google_icon/trabajo.png',
+    'images/google_icon/office.png',
+    'images/google_icon/trabajo.png',
+    'images/google_icon/gas.png',
+     'images/google_icon/restaurant.png'
 ];
 
 /*

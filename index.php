@@ -92,14 +92,7 @@
 
 </head>
 <body>
-     <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                        js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=142489082613367&version=v2.0";
-                            fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));</script>
+
     
     <!--[if lt IE 7]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
@@ -114,7 +107,7 @@
                     
                     <div class="logo-wrapper">
                         <h1 class="logo">
-                            <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv"><img src="images/logo2.png" alt="Circle - Free HTML5 Templates">
+                            <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv"><img src="images/logo2.png" alt="GoodInfo">
                             </a>
                         </h1>
                     </div> <!-- /.logo-wrapper -->
@@ -122,7 +115,7 @@
                     <div class="menu-wrapper">
                         <ul class="menu">
                             <li><a class="homebutton" href="#">Home</a></li>
-                            <li><a class="show-1" href="#">Lo Nuevo</a></li>
+                            <li><a class="show-1" href="#">Noticias</a></li>
                             <li><a class="show-2" href="#" onclick="food_market_map();">Alimentos</a></li>
                             <li><a class="show-3" href="#" onclick="hospital_map();" >Salud</a></li>
                             <li><a class="show-4" href="#" onclick="police_map();"  >Seguridad</a></li>
@@ -420,6 +413,7 @@
 													<fieldset class="col-md-4">
 													</fieldset>
 													<fieldset class="col-md-4">
+                                                                                                            <br><br>
 														<input id="name" type="text" 
 															name="txt_med" id="txt_med" 
 															placeholder="Buscar una medicina" onkeyup="get_medicina(null , this.value);" />
@@ -495,18 +489,20 @@
                                 <form>
                                     <section>
                                             <select id="select_localizar" name="select_localizar">
-                                                <option value='veterinary_care' selected >Veterinarios</option>
+                                                <option value='veterinary_care' selected >SELECCIONE CATEGORIA</option>
+                                                <option value='pharmacy'>Farmacias</option>
+                                                <option value='veterinary_care' >Veterinarios</option>
+                                                <option value='local_government_office'>Oficinas</option>
                                                 <option value='school'>Colegios</option>
+                                                <option value='gas_station'>Estaciones de Gasolina</option>
+                                                <option value='food'>Areas de comida</option>
                                                 <option value='shopping_mall'>Centros Comerciales</option>
                                                 <option value='restaurant'>Restaurantes</option>
-                                                <option value='pharmacy'>Farmacias</option>
                                                 <option value='place_of_worship'>Diversos</option>
                                                 <option value='night_club'>Diversion Nocturna</option>
                                                 <option value='movie_theater'>Cines</option>
-                                                <option value='local_government_office'>Oficinas Gubernamentales</option>
                                                 <option value='gym'>Gimnasios</option>
-                                                <option value='gas_station'>Estaciones de Gasolina</option>
-                                                <option value='food'>Areas de comida</option>
+                                                
                                         </select>
                                     </section>
                                 </form>
@@ -683,6 +679,13 @@
      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.dropdown.js"></script> 
       
-    
+         <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&appId=142489082613367&version=v2.0";
+                            fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>

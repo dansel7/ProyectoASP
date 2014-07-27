@@ -109,8 +109,8 @@ class body
                     
                     <div class="logo-wrapper">
                         <h1 class="logo">
-                            <a rel="nofollow" href="http://www.templatemo.com/preview/templatemo_410_circle"><img src="images/logo.png" alt="Circle - Free HTML5 Templates">
-                            <span>Gobierno Abierto</br>El Salvador</span></a>
+                            <a rel="nofollow" href="http://infoutil.gobiernoabierto.gob.sv"><img src="images/logo2.png" alt="GoodInfo">
+                           
                         </h1>
                     </div> <!-- /.logo-wrapper -->
                     
