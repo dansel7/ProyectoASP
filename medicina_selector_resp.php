@@ -171,9 +171,8 @@
     $paging->agregarArray($filtro);
     $paging->ejecutar(); 
     
-    
-    
-    foreach((array)$paging->fetchTodo() as $key=>$value)
+ 
+    foreach($paging->fetchTodo() as $key=>$value)
     {
         foreach ($value as $k=>$val)
         {

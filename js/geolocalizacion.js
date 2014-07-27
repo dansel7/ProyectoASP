@@ -100,9 +100,7 @@ var placeTypes = [
 var iconos =[
     'images/google_icon/hospital.png',
     'images/google_icon/policia.png',
-    'images/google_icon/supmarket.png',
-    'images/google_icon/parking.png',
-    'images/google_icon/pets.png'
+    'images/google_icon/supmarket.png'
 ];
 
 
@@ -110,7 +108,6 @@ var rutas= [
     'police_responsive.php',
     'hospital_responsive.php',
     'food_market_responsive.php',
-    'localizar_responsive.php'
 ];
 
 var map;
@@ -164,12 +161,6 @@ function mostrar_coordenadas(position) {
             break;
           case 'grocery_or_supermarket':
                 map = new google.maps.Map(document.getElementById('map-canvas-f'), {
-                center: pyrmont,
-                zoom: 15
-            });    
-            break;
-        default:
-                map = new google.maps.Map(document.getElementById('map-localizar'), {
                 center: pyrmont,
                 zoom: 15
             });    
@@ -241,15 +232,10 @@ function get_informacion(objeto)
             estatus=1;
             window.ruta=window.rutas[1];
             break;
-        case 'grocery_or_supermarket':
+            case 'grocery_or_supermarket':
             estatus=2;
             window.ruta=window.rutas[2];
             break;
-        default:
-            estatus=100;
-            window.ruta=window.rutas[3];
-            break;
-        
     }
  
     realizaProceso(object__ , window.ruta , estatus);
@@ -275,45 +261,6 @@ function createMarker(place) {
            break;
        case 'grocery_or_supermarket':
             i=2;
-            break;
-        case 'parking':
-            i=3;
-            break;
-        case 'veterinary_care':
-            i=4;
-            break;
-        case 'school':
-            i=5;
-            break;
-        case 'shopping_mall':
-            i=6;
-            break;
-        case 'restaurant':
-            i=7;
-            break;
-        case 'pharmacy':
-            i=8;
-            break;
-        case 'place_of_worship':
-            i=9;
-            break;
-        case 'night_club':
-            i=10;
-            break;
-        case 'movie_theater':
-            i=11;
-            break;
-        case 'local_government_office':
-            i=12;
-            break;
-        case 'gym':
-            i=13;
-            break;
-        case 'gas_station':
-            i=14;
-            break;
-        case 'food':
-            i=15;
             break;
        default:
            break;
@@ -352,8 +299,6 @@ function createMarker(place) {
                          $("#informacion-hospital").html("Procesando, espere por favor...");
                       else if (estatus===2)
                          $("#informacion-food").html("Procesando, espere por favor...");
-                     else
-                          $("#informacion-localizar").html("Procesando, espere por favor...");
                         
                 },
                 success:  function (response) {
@@ -367,11 +312,6 @@ function createMarker(place) {
                     }else if (estatus===2){
                          $("#informacion-food").html('');
                         $("#informacion-food").html(response);
-                    }
-                    else
-                    {
-                         $("#informacion-localizar").html('');
-                        $("#informacion-localizar").html(response);
                     }
                 }
        });
