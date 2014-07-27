@@ -137,18 +137,13 @@
                             <ul class="tabs">
                                 <li class="col-md-4 col-sm-4">
                                     <a href="#tab1" class="icon-item" >
-                                        <i class="fa fa-plus-square"></i>
+                                        <i class="fa fa-user-md"></i>
                                         <div id="notify_medicina"></div>
                                     </a> <!-- /.icon-item -->
                                 </li>
                                 <li class="col-md-4 col-sm-4">
                                     <a href="#tab2" class="icon-item">
-                                        <i class="fa fa-camera"></i>
-                                    </a> <!-- /.icon-item -->
-                                </li>
-                                <li class="col-md-4 col-sm-4">
-                                    <a href="#tab3" class="icon-item">
-                                        <i class="fa fa-coffee"></i>
+                                        <i class="fa fa-dollar"></i>
                                     </a> <!-- /.icon-item -->
                                 </li>
                             </ul> <!-- /.tabs -->
@@ -176,12 +171,6 @@
                                     <h3>What We Do</h3>
                                     <p>Donec quis orci nisl. Integer euismod lacus nec risus sollicitudin molestie vel semper turpis. In varius imperdiet enim quis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris ac mauris aliquam magna molestie posuere in id elit. Integer semper metus felis, fringilla congue elit commodo a. Donec eget rutrum libero.
                                     <br><br>Nunc dui elit, vulputate vitae nunc sed, accumsan condimentum nisl. Vestibulum a dui lectus. Vivamus in justo hendrerit est cursus semper sed id nibh. Donec ut dictum lorem, eu molestie nisi. Quisque vulputate quis leo lobortis fermentum. Ut sit amet consectetur dui, vitae porttitor lectus.</p>
-                                </div>
-
-                                <div class="toggle-content text-center" id="tab3">
-                                    <h3>Our Team</h3>
-                                    <p>Aliquam erat volutpat. Vivamus tempus, nisi varius imperdiet molestie, velit mi feugiat felis, sit amet fringilla mi massa sit amet arcu. Mauris dictum nisl id felis lacinia congue. Aliquam lectus nisi, sodales in lacinia quis, lobortis vel sem. Vestibulum elit nisi, placerat eget auctor ut, dictum at libero.
-                                    <br><br>Proin enim odio, eleifend eget euismod vitae, pharetra sed lacus. Donec at sapien nunc. Mauris vehicula quis diam nec dignissim. Nulla consequat nibh mattis metus sodales, at eleifend tortor tempor. Sed auctor lacus felis. </p>
                                 </div>
                             </div> <!-- /.col-md-12 -->
                         </div> <!-- /.row -->
