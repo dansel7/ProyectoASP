@@ -25,6 +25,7 @@ class Autorizacion
         "marcasProd"=>'http://api.gobiernoabierto.gob.sv/product_brands',
         "info_denuncias"=>'http://api.gobiernoabierto.gob.sv/delation_infos',
         "inst_denuncias"=>'http://api.gobiernoabierto.gob.sv/delation_institutions',
+
 		
     );
     

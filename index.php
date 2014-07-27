@@ -126,22 +126,7 @@
                     <a id="nextslide" class="load-item"><i class="fa fa-angle-right"></i></a>
                     
                 </div> <!-- /.sidebar-menu --><br>
-                <div class="sidebar-menu">
-                   
-                    <div style="position: relative; z-index: 10;color:greenyellow">
-                         <h3 style="margin-bottom:0;background-color:white">Precios Actualizados</h3>
-                    <div style="background-color: white; position:absolute; z-index:-1; top:0; left:0; right:0; bottom:0; opacity:0.6;"></div>
-
-                        <ul id="list-items">
-                            <script>
-                            loadcontent(2,10);
-                            </script>
-                            <li id="more-items">
-                     <a href="#" onclick="loadcontent(2,100)" >Cargar mas ...</a> 
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+             
             </div> <!-- /.col-md-4 -->
 
             <div class="col-md-8 col-sm-12">
