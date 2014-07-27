@@ -24,7 +24,7 @@ order by  pp.probe_date desc, pp.price";
         while($bdd->Resultado()) {
             array_push($array_prod, $bdd->Resultado());
         }
-        
+        $bdd->CloseConection();
         foreach($array_prod as $key=>$value)
     {
         $decode = $value ;

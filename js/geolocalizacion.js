@@ -174,7 +174,56 @@ function get_localizacion() {
 }
 
 
+function set_prod_alimentos(locations,lat,long) { 
+   
+    var map = new google.maps.Map(document.getElementById('map-canvas-fprod'), {
+      zoom: 11,
+      center: new google.maps.LatLng(lat, long),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
 
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+var imagen = new google.maps.MarkerImage(iconos[2],
+    new google.maps.Size(100,50)
+   ); 
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+         icon:imagen
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+    
+}
+    /*
+function set_prod_alimentos(lat,long) {
+  var myLatlng = new google.maps.LatLng(lat,long);
+  var imagen = new google.maps.MarkerImage(iconos[2],
+    new google.maps.Size(100,50)
+   ); 
+  var mapOptions = {
+    zoom: 15,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas-fprod'), mapOptions);
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Markup',
+      icon:imagen
+  });
+}
+*/
 function mostrar_coordenadas(position) {
 
    

@@ -48,6 +48,11 @@
         margin: 0px;
         padding: 100px
       }
+      #map-canvas-fprod {
+        height: 100%;
+        margin: 0px;
+        padding: 100px
+      }
        #map-localizar {
         height: 100%;
         margin: 0px;
@@ -72,12 +77,14 @@
             set_tipo('police');
             initialize();
        }
+       
+       
+
+       
         function food_market_map(){
             
             set_tipo('grocery_or_supermarket');
             initialize();
-            
-            carga_prod_precios();
        }
       
       
@@ -317,11 +324,7 @@
                                         <i class="fa fa-leaf"></i>
                                     </a> <!-- /.icon-item -->
                                 </li>
-                                <li class="col-md-4 col-sm-4">
-                                    <a href="#tab6" class="icon-item">
-                                        <i class="fa fa-users"></i>
-                                    </a> <!-- /.icon-item -->
-                                </li>
+                               
                             </ul> <!-- /.tabs -->
                             
                             <div class="col-md-12 col-sm-12">
@@ -353,11 +356,11 @@
                                      <div id="prod_notify">
                                     </div>
                                             </div>
-                                         
+                                         <div class="col-md-12">
                                          <div class="google-map">
                                             <div id="map-canvas-fprod" ></div> 
                                          </div> 
-                                         
+                                         </div> 
                                      </div>  
                                 </div>
                                 
@@ -368,11 +371,7 @@
                                  </div>
                              </div>
 
-                                <div class="toggle-content text-center" id="tab6">
-                                    <h3>Datos Importantes</h3>
-                                    <p>Etiam dictum, quam quis pharetra tincidunt, enim nunc faucibus ipsum, vitae condimentum ligula est eu dui. Sed tincidunt tincidunt sapien non feugiat. Aenean lacinia tempor leo, et euismod ligula porta non. Quisque lectus ante, rutrum eu neque volutpat, euismod lobortis velit. Suspendisse felis risus, tempor ac vehicula eu, volutpat volutpat sem. Donec quis orci nisl. Integer euismod lacus nec risus sollicitudin molestie vel semper turpis.
-                                    <br><br>In varius imperdiet enim quis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris ac mauris aliquam magna molestie posuere in id elit. Integer semper metus felis, fringilla congue elit commodo a. Donec eget rutrum libero.</p>
-                                </div>
+                                
                             </div> <!-- /.col-md-12 -->
 						
                         </div> <!-- /.row -->
@@ -602,7 +601,26 @@
                                 $( "#prod_notify" ).html(response);
                             }
                         });
-          
+                         
+                        function json2array(json){
+                            var result = [];
+                            var keys = Object.keys(json);
+                            keys.forEach(function(key){
+                                result.push(json[key]);
+                            });
+                            return result;
+                        }
+                        
+                         $.ajax({
+                            data:  parametros,
+                            url:   'prod_map_responsive.php',
+                            type:  'post',
+                            success:  function (response) {
+                                
+  var array= [['Despensa de Don Juan Cumbres De La Escalon',13.7073,-89.2448]];
+                                set_prod_alimentos(array, document.getElementById('coordLat').value,document.getElementById('coordLong').value);
+                            }
+                        });   
                 }
                 
                 function get_med_act(busqueda, norm)
