@@ -144,11 +144,6 @@
                                         <div id="notify_medicina"></div>
                                     </a> <!-- /.icon-item -->
                                 </li>
-                                <li class="col-md-4 col-sm-4">
-                                    <a href="#tab2" class="icon-item">
-                                        <i class="fa fa-dollar"></i>
-                                    </a> <!-- /.icon-item -->
-                                </li>
                             </ul> <!-- /.tabs -->
                <div class="col-md-12 col-sm-12">
                         <form id="tab1">
@@ -170,11 +165,7 @@
                              </div>
                             </form>
                                 
-                                <div class="toggle-content text-center" id="tab2">
-                                    <h3>What We Do</h3>
-                                    <p>Donec quis orci nisl. Integer euismod lacus nec risus sollicitudin molestie vel semper turpis. In varius imperdiet enim quis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris ac mauris aliquam magna molestie posuere in id elit. Integer semper metus felis, fringilla congue elit commodo a. Donec eget rutrum libero.
-                                    <br><br>Nunc dui elit, vulputate vitae nunc sed, accumsan condimentum nisl. Vestibulum a dui lectus. Vivamus in justo hendrerit est cursus semper sed id nibh. Donec ut dictum lorem, eu molestie nisi. Quisque vulputate quis leo lobortis fermentum. Ut sit amet consectetur dui, vitae porttitor lectus.</p>
-                                </div>
+                                
                             </div> <!-- /.col-md-12 -->
                         </div> <!-- /.row -->
                         
@@ -309,17 +300,17 @@
                             <ul class="tabs">
                                 <li class="col-md-4 col-sm-4">
                                     <a href="#tab4" class="icon-item">
-                                        <i class="fa fa-cogs"></i>
+                                        <i class="fa fa-shopping-cart"></i>
                                     </a> <!-- /.icon-item -->
                                 </li>
                                 <li class="col-md-4 col-sm-4">
                                     <a href="#tab5" onclick="carga_prod_precios()" class="icon-item">
-                                        <i class="fa fa-leaf"></i>
+                                        <i class="fa fa-thumbs-up"></i>
                                     </a> <!-- /.icon-item -->
                                 </li>
                                 <li class="col-md-4 col-sm-4">
                                     <a href="#tab6" class="icon-item">
-                                        <i class="fa fa-users"></i>
+                                        <i class="fa fa-search"></i>
                                     </a> <!-- /.icon-item -->
                                 </li>
                             </ul> <!-- /.tabs -->
@@ -415,7 +406,7 @@
 											<div id="informacion-medicamentos">
                                  
 												<h3>
-												<img src="images/medicina.png" width="100" height="100" />
+												<img src="images/medicina.png" width="100" height="100" /><br><br>
 												Favor Seleccione una categoria o realice una busqueda
 												</h3>
 											</div>
@@ -451,23 +442,58 @@
 
                     <div id="menu-4" class="contact content">
                         <div class="row">
+                          <div class="col-md-12 col-sm-12">
+									<div class="contact-form">
                           
-                            <div class="col-md-12">
-                                <div class="toggle-content text-center spacing">
-                                    <h3>Delegaciones</h3>
-                                </div>
-                                <div class="toggle-content  spacing">
-                                    <h3>Delegaciones mas cercanas</h3>
-                                     <div id="informacion-police">
-                                    </div>
-                                </div>
-                            </div> 
+                                    
+											<div class="row">
+												<form action="#" method="post">
+                                   
+													<fieldset class="col-md-4">
+														<section >
+															<select id="denuncia_selector" name="denuncia_selector" >
+															<?php
+																require_once 'denuncia_selector.php';
+															?>
+															</select>
+														</section>
+													</fieldset>
+													<fieldset class="col-md-4">
+													</fieldset>
+												</form>
+											</div>
+									</div>
+										<div class="toggle-content spacing">
+											<h3>Denuncias</h3>
+											<div id="informacion-denuncias">
+                                 
+												<h3>
+												<img src="images/denuncia.png" width="100" height="100" /><br><br>
+												Favor Seleccione una categoria
+												</h3>
+											</div>
+										</div>
+									<div class="col-md-12">
+										
+										<div class="toggle-content  spacing">
+											<h3>Delegaciones mas cercanas</h3>
+											<div id="informacion-police">
+											</div>
+										</div>
+									</div> 
                             
-                            <div class="col-md-12">
-                                <div class="google-map">
-                                      <div id="map-canvas-p" ></div> 
-                                </div> 
-                            </div> 
+									<div class="col-md-12">
+										<div class="google-map">
+											<div id="map-canvas-p" ></div> 
+										</div> 
+									</div> 
+									<div class="toggle-content spacing">
+									<div class="fb-comments" 
+                                                                             accesskey=""data-href="http://infoutil.gobiernoabierto.gob.sv/dalation_institutions" 
+                                                                             data-width="600" data-numposts="8" data-colorscheme="light">
+									</div>
+                                                                         </div>
+							</div>
                         </div> <!-- /.row -->
                     </div> <!-- /.contact -->
                     
@@ -497,7 +523,9 @@
                                 </form>
                                 <div class="toggle-content text-center spacing">
                                     <h3>Localizate</h3>
-                                   
+                                   <p>Lo importante de la informacion es de saber donde buscarla.<br>
+									Selecciona una categoria y conoceras los establecimientos mas<br>
+									cercanos de tu preferencia</p>
                                 </div>
                                 <div class="toggle-content  spacing">    
                                      <div id="informacion-localizar">
@@ -559,7 +587,17 @@
                                         }
 				});
                                 
-                            
+                $( '#denuncia_selector' ).dropdown( {
+					gutter : 60,
+                                        stack: false,
+                                        delay: 25,
+                                        slidingIn: 100,
+                                        onOptionSelect: function(opt) {
+                                            var valor = (opt.data('value'));
+                                            get_denuncias(valor , null);
+                                            
+                                        }
+				});            
                               
                               carga_notificaciones();
 		});
