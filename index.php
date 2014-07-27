@@ -26,6 +26,7 @@
      
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     <script type="text/javascript" src="js/geolocalizacion.js"></script>
+    <script type="text/javascript" src="js/localizacion.js"></script>
     <script type="text/javascript" src="js/ajax.js"></script>
     <script src="js/jquery-1.8.2.min.js"></script>
     <script src="js/jqueryfunciones.js"></script>
@@ -44,6 +45,11 @@
         padding: 100px
       }
        #map-canvas-f {
+        height: 100%;
+        margin: 0px;
+        padding: 100px
+      }
+      #map-localizar {
         height: 100%;
         margin: 0px;
         padding: 100px
@@ -69,6 +75,12 @@
        }
         function food_market_map(){
             set_tipo('grocery_or_supermarket');
+            initialize();
+       }
+       function locale()
+       {
+           
+           set_tipo('veterinary_care');
             initialize();
        }
 
@@ -111,12 +123,14 @@
                     </div> <!-- /.logo-wrapper -->
                     
                     <div class="menu-wrapper">
+                         <div class="sidebar-menu">
                         <ul class="menu">
                             <li><a class="homebutton" href="#">Home</a></li>
-                            <li><a class="show-1" href="#">Lo Nuevo</a></li>
+                            <li><a class="show-1" href="#">Noticias</a></li>
                             <li><a class="show-2" href="#" onclick="food_market_map();">Alimentos</a></li>
                             <li><a class="show-3" href="#" onclick="hospital_map();" >Salud</a></li>
                             <li><a class="show-4" href="#" onclick="police_map();"  >Seguridad</a></li>
+                            <li><a class="show-5" href="#" onclick=""  >Localizate</a></li>
                         </ul> <!-- /.menu -->
                         <a href="#" class="toggle-menu"><i class="fa fa-bars"></i></a>
                     </div> <!-- /.menu-wrapper -->
@@ -125,21 +139,6 @@
                     <a id="nextslide" class="load-item"><i class="fa fa-angle-right"></i></a>
                     
                 </div> <!-- /.sidebar-menu --><br>
-                <div class="sidebar-menu">
-                   
-                    <div style="position: relative; z-index: 10;color:greenyellow">
-                         <h3 style="margin-bottom:0;background-color:white">Precios Actualizados</h3>
-                    <div style="background-color: white; position:absolute; z-index:-1; top:0; left:0; right:0; bottom:0; opacity:0.6;"></div>
-
-                        <ul id="list-items">
-                            <script>
-                            loadcontent(2,10);
-                            </script>
-                            <li id="more-items">
-                     <a href="#" onclick="loadcontent(2,100)" >Cargar mas ...</a> 
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div> <!-- /.col-md-4 -->
 
@@ -298,12 +297,13 @@
                                    
                                 </div> <!-- /.member-item -->
                             </div> <!-- /.col-md-4 -->
-                            <div class="col-md-4 col-sm-4">
-                                <div class="member-item">
+                           
+                                
                                     <?php
                                         
                                          if(isset($_SESSION['id']))
                                          {
+                                             echo ' <div class="col-md-4 col-sm-4"><div class="member-item">';
                                            
                                             if($is_fb)
                                             {
@@ -321,9 +321,10 @@
                                             
                                             echo $sesion;
                                          }
+                                         echo ' </div> 
+                                                </div> ';
                                     ?>
-                                </div> <!-- /.member-item -->
-                            </div> <!-- /.col-md-4 -->
+                             
                         </div> <!-- /.row -->
                     </div> <!-- /.about -->
 
@@ -348,39 +349,31 @@
                             </ul> <!-- /.tabs -->
                             
                             <div class="col-md-12 col-sm-12">
-                                <div class="toggle-content text-center" id="tab4">
-                                    <h4>Establecimientos y Supermercados </h4>
+                                
+                            <div class="toggle-content text-center"  id="tab4">
+                                    
                             <div class="col-md-12">
+                                <h4>Establecimientos y Supermercados </h4>
                                 <div class="toggle-content  spacing">
                                     <h3>Lugares mas cercanos</h3>
                                      <div id="informacion-food">
                                     </div>
                                 </div>
+                                 
                             </div> 
-                            <br>
-                             <div class="col-md-12">
-                                <div class="google-map">
-                                    <div id="map-canvas-f" ></div> 
-                                </div> 
+
+                             
                             </div> 
-                                </div>
+                             
+                             
                                 
                            
                                 <div class="toggle-content text-center" id="tab5">
                                     <h3>Ubicacion de Mejores Precios</h3>
-                                     <div class="col-md-12"> 
-                                          <div class="google-map">
-                                            <div id="map-canvas-f" ></div> 
-                                         </div> 
-                                     </div>  
+                                   
                                 </div>
                                 
-                              <div class="toggle-content spacing">
-                                 <div class="fb-comments" 
-                                      data-href="http://infoutil.gobiernoabierto.gob.sv/products?search%5Bcategory_id%5D=9" 
-                                      data-width="600" data-numposts="8" data-colorscheme="light">
-                                 </div>
-                             </div>
+                             
 
                                 <div class="toggle-content text-center" id="tab6">
                                     <h3>Datos Importantes</h3>
@@ -388,7 +381,20 @@
                                     <br><br>In varius imperdiet enim quis iaculis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris ac mauris aliquam magna molestie posuere in id elit. Integer semper metus felis, fringilla congue elit commodo a. Donec eget rutrum libero.</p>
                                 </div>
                             </div> <!-- /.col-md-12 -->
-						
+                            
+                            <div class="col-md-12">
+                                    <div class="google-map">
+                                        <div id="map-canvas-f" ></div> 
+                                    </div> 
+                                </div>       
+                            
+                            <div class="toggle-content ">
+                                
+                                 <div class="fb-comments" 
+                                      data-href="http://infoutil.gobiernoabierto.gob.sv/products?search%5Bcategory_id%5D=9" 
+                                      data-width="%20" data-numposts="8" data-colorscheme="light">
+                                 </div>
+                             </div>
                         </div> <!-- /.row -->
                     </div> <!-- /.services -->
      
@@ -454,7 +460,7 @@
 									<div class="toggle-content spacing">
 									<div class="fb-comments" 
                                                                              accesskey=""data-href="http://infoutil.gobiernoabierto.gob.sv/medicines" 
-                                                                             data-width="600" data-numposts="8" data-colorscheme="light">
+                                                                             data-width="%20" data-numposts="8" data-colorscheme="light">
 									</div>
                                                                          </div>
 							
@@ -483,6 +489,28 @@
                             </div> 
                         </div> <!-- /.row -->
                     </div> <!-- /.contact -->
+                    
+                    <div id="menu-5" class="contact content">
+                        <div class="row">
+                          
+                            <div class="col-md-12">
+                                <div class="toggle-content text-center spacing">
+                                    <h3>Localizate</h3>
+                                    <a href="#" onclick="locale();">DALE</a>
+                                </div>
+                                <div class="toggle-content  spacing">    
+                                     <div id="informacion-localizar">
+                                    </div>
+                                </div>
+                            </div> 
+                            
+                            <div class="col-md-12">
+                                <div class="google-map">
+                                      <div id="map-localizar" ></div> 
+                                </div> 
+                            </div> 
+                        </div> <!-- /.row -->
+                    </div>
 
                 </div> <!-- /#menu-container -->
 
