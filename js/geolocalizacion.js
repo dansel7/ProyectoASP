@@ -102,8 +102,35 @@ var iconos =[
     'images/google_icon/policia.png',
     'images/google_icon/supmarket.png',
     'images/google_icon/parking.png',
-    'images/google_icon/pets.png'
+    'images/google_icon/pets.png',
+    'images/google_icon/escuelas.png',
+    'images/google_icon/shooping.png',
+    'images/google_icon/restaurant.png',
+    'images/google_icon/farmacia.png',
+    'images/google_icon/trabajo.png',
 ];
+
+/*
+        
+
+        case 'night_club':
+            i=10;
+            break;
+        case 'movie_theater':
+            i=11;
+            break;
+        case 'local_government_office':
+            i=12;
+            break;
+        case 'gym':
+            i=13;
+            break;
+        case 'gas_station':
+            i=14;
+            break;
+        case 'food':
+            i=15;
+            break;*/
 
 
 var rutas= [
