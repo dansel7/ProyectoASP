@@ -24,6 +24,27 @@
                 
             });
     }
+	function get_denuncias(categoria , busqueda)
+				{
+					var parametros = {
+					'categoria' : categoria,
+					'busqueda' : busqueda
+					};
+            
+				$.ajax({
+					data:  parametros,
+					url:   'denuncia_responsive.php',
+					type:  'post',
+					beforeSend: function () {
+						$( "#informacion-denuncias" ).html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');     
+					},
+					success:  function (response) {
+                     $( "#informacion-denuncias" ).html(response);
+					}
+                
+					});
+        
+				}
     
  
 
