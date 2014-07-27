@@ -119,7 +119,7 @@
                     <div class="menu-wrapper">
                         <ul class="menu">
                             <li><a class="homebutton" href="#">Home</a></li>
-                            <li><a class="show-1" href="#"> Noticias</a></li>
+                            <li><a class="show-1" href="#">Lo Nuevo</a></li>
                             <li><a class="show-2" href="#" onclick="food_market_map();">Alimentos</a></li>
                             <li><a class="show-3" href="#" onclick="hospital_map();" >Salud</a></li>
                             <li><a class="show-4" href="#" onclick="police_map();"  >Seguridad</a></li>
@@ -144,7 +144,7 @@
                             <ul class="tabs">
                                 <li class="col-md-4 col-sm-4">
                                     <a href="#tab1" class="icon-item" >
-                                        <i class="fa fa-user-md"></i>
+                                        <i class="fa fa-plus-square"></i>
                                         <div id="notify_medicina"></div>
                                     </a> <!-- /.icon-item -->
                                 </li>
@@ -386,39 +386,35 @@
      
                     <div id="menu-3" class="services content">
 						<div class="row">
-			  <ul class="tabs">
-                                <li class="col-md-4 col-sm-4">
-                                    <a href="#tab7" class="icon-item">
-                                        <i class="fa fa-search"></i>
-                                    </a> <!-- /.icon-item -->
-                                </li>
-                                <li class="col-md-4 col-sm-4">
-                                    <a href="#tab8" class="icon-item">
-                                        <i class="fa fa-medkit"></i>
-                                    </a> <!-- /.icon-item -->
-                                </li>
-                            </ul> <!-- /.tabs -->
-		            <div class="col-md-12 col-sm-12">
-				<div  id="tab7">
-					<div class="contact-form">
-						   
-							<form action="#" method="post">
-                                                                    <fieldset class="col-md-4">
-                                                                        	<input id="name" type="text" 
-												name="txt_med" id="txt_med" 
-												placeholder="Buscar una medicina" onkeyup="get_medicina(null , this.value);" />
-										<section >
-                                                                                    <select id="medicina_select" name="medicina_select" >
-												<?php
-                                                                                                    require_once 'medicina_selector.php';
-												?>
-                                                                                    </select>
-										</section>
-								    </fieldset>
+			
+							<div class="col-md-12 col-sm-12">
+								
 									
-                                                         </form>
-											
-										
+										<div class="contact-form">
+                          
+                                    
+											<div class="row">
+												<form action="#" method="post">
+                                   
+													<fieldset class="col-md-4">
+														<section >
+															<select id="medicina_select" name="medicina_select" >
+															<?php
+																require_once 'medicina_selector.php';
+															?>
+															</select>
+														</section>
+													</fieldset>
+													<fieldset class="col-md-4">
+													</fieldset>
+													<fieldset class="col-md-4">
+														<input id="name" type="text" 
+															name="txt_med" id="txt_med" 
+															placeholder="Buscar una medicina" onkeyup="get_medicina(null , this.value);" />
+													</fieldset>
+												</form>
+											</div>
+										</div>
 										<div class="toggle-content spacing">
 											<h3>Medicamentos</h3>
 											<div id="informacion-medicamentos">
@@ -429,9 +425,9 @@
 												</h3>
 											</div>
 										</div>
-									</div></div>
+									
 								
-									<div  id="tab8">
+	
 									<div class="col-md-12">
 										<div class="toggle-content spacing">
 											<h3>Establecimientos de salud mas cercanos</h3>
@@ -454,7 +450,7 @@
 									</div>
                                                                          </div>
 							
-							</div></div>
+							</div>
 						</div> 
                     </div> 
 
@@ -487,8 +483,7 @@
                                 <form>
                                     <section>
                                             <select id="select_localizar" name="select_localizar">
-                                                <option value='veterinary_care' selected >Seleccionar categoria</option>
-                                                <option value='veterinary_care'  >Veterinarios</option>
+                                                <option value='veterinary_care' selected >Veterinarios</option>
                                                 <option value='school'>Colegios</option>
                                                 <option value='shopping_mall'>Centros Comerciales</option>
                                                 <option value='restaurant'>Restaurantes</option>
