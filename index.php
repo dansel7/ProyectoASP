@@ -408,6 +408,7 @@
 													<fieldset class="col-md-4">
 													</fieldset>
 													<fieldset class="col-md-4">
+                                                                                                            <br><br>
 														<input id="name" type="text" 
 															name="txt_med" id="txt_med" 
 															placeholder="Buscar una medicina" onkeyup="get_medicina(null , this.value);" />
@@ -483,18 +484,20 @@
                                 <form>
                                     <section>
                                             <select id="select_localizar" name="select_localizar">
-                                                <option value='veterinary_care' selected >Veterinarios</option>
+                                                <option value='veterinary_care' selected >SELECCIONE CATEGORIA</option>
+                                                <option value='pharmacy'>Farmacias</option>
+                                                <option value='veterinary_care' >Veterinarios</option>
+                                                <option value='local_government_office'>Oficinas</option>
                                                 <option value='school'>Colegios</option>
+                                                <option value='gas_station'>Estaciones de Gasolina</option>
+                                                <option value='food'>Areas de comida</option>
                                                 <option value='shopping_mall'>Centros Comerciales</option>
                                                 <option value='restaurant'>Restaurantes</option>
-                                                <option value='pharmacy'>Farmacias</option>
                                                 <option value='place_of_worship'>Diversos</option>
                                                 <option value='night_club'>Diversion Nocturna</option>
                                                 <option value='movie_theater'>Cines</option>
-                                                <option value='local_government_office'>Oficinas Gubernamentales</option>
                                                 <option value='gym'>Gimnasios</option>
-                                                <option value='gas_station'>Estaciones de Gasolina</option>
-                                                <option value='food'>Areas de comida</option>
+                                                
                                         </select>
                                     </section>
                                 </form>
