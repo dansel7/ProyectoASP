@@ -386,7 +386,7 @@
      
                     <div id="menu-3" class="services content">
 						<div class="row">
-							<ul class="tabs">
+			  <ul class="tabs">
                                 <li class="col-md-4 col-sm-4">
                                     <a href="#tab7" class="icon-item">
                                         <i class="fa fa-search"></i>
@@ -398,34 +398,27 @@
                                     </a> <!-- /.icon-item -->
                                 </li>
                             </ul> <!-- /.tabs -->
-							<div class="col-md-12 col-sm-12">
-								
-									<div  id="tab7">
-										<div class="contact-form">
-                          
-                                    
-											<div class="row">
-												<form action="#" method="post">
-                                   
-													<fieldset class="col-md-4">
-														<section >
-															<select id="medicina_select" name="medicina_select" >
-															<?php
-																require_once 'medicina_selector.php';
-															?>
-															</select>
-														</section>
-													</fieldset>
-													<fieldset class="col-md-4">
-													</fieldset>
-													<fieldset class="col-md-4">
-														<input id="name" type="text" 
-															name="txt_med" id="txt_med" 
-															placeholder="Buscar una medicina" onkeyup="get_medicina(null , this.value);" />
-													</fieldset>
-												</form>
-											</div>
-										</div>
+		            <div class="col-md-12 col-sm-12">
+				<div  id="tab7">
+					<div class="contact-form">
+						   
+							<form action="#" method="post">
+                                                                    <fieldset class="col-md-4">
+                                                                        	<input id="name" type="text" 
+												name="txt_med" id="txt_med" 
+												placeholder="Buscar una medicina" onkeyup="get_medicina(null , this.value);" />
+										<section >
+                                                                                    <select id="medicina_select" name="medicina_select" >
+												<?php
+                                                                                                    require_once 'medicina_selector.php';
+												?>
+                                                                                    </select>
+										</section>
+								    </fieldset>
+									
+                                                         </form>
+											
+										
 										<div class="toggle-content spacing">
 											<h3>Medicamentos</h3>
 											<div id="informacion-medicamentos">
@@ -436,7 +429,7 @@
 												</h3>
 											</div>
 										</div>
-									</div>
+									</div></div>
 								
 									<div  id="tab8">
 									<div class="col-md-12">
