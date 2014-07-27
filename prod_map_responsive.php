@@ -6,16 +6,13 @@ $longitude=isset($_POST["lon"])?$_POST["lon"]:0;
 require_once('MysqlConexion.class.php');
 $bdd = new Consulta();
 	
-     $sql = "select p.name producto,pb.name marca,ppr.name presentacion,
-pp.price precio,pp.offer_price ofer_precio,se.name establecimiento,pp.probe_date sondeo,
-se.latitude,se.longitude
-from productprobe pp 
+     $sql = "selec se.latitude,se.longitudefrom productprobe pp 
 inner join product p on pp.product_id=p.id
 inner join productbrand pb on pp.product_brand_id=pb.id
 inner join productpresentation ppr on pp.product_presentation_id=ppr.id
 inner join shoppingestablishment se on pp.shopping_establishment_id=se.id
 where (se.latitude>$latitude and se.latitude<($latitude + 0.1) ) and (se.longitude<$longitude and se.longitude>($longitude - 0.1)) and  (se.name like '%Despensa%' or se.name like '%Super' or se.name like '%Walmart%' or se.name like '%Wallmart%')
-order by  pp.probe_date desc, pp.price";
+group by ";
 	
 	
 	$resultado=$bdd->GetConsulta($sql);
@@ -39,27 +36,23 @@ order by  pp.probe_date desc, pp.price";
                     case 'marca':
                         echo "Marca: $v <br>";
                         break;
+                    case 'presentacion':
+                         echo "Presentacion: $v <br>";
+                        break;
                     case 'precio':
                         echo "Precio: $v <br>";
-                        break;
-                    case 'presentacion':
-                         echo "$v <br>";
-                        break;
                     case 'ofer_precio':
-                         echo "Precio de Venta: $v <br>";
-                        break;
-                    case 'establecimiento':
-                         echo "<b> $v </b><br>";
-                        break;
+                         echo "Precio de Venta: $v <br>";;  
                     case 'sondeo':
                          echo "Fecha Sondeo: $v <br>";
+                    default :
                         break;
                 }
                 
             }
            
         }
-         echo "<hr>";
+         echo "<br>";
     }
         
        

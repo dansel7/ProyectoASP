@@ -73,11 +73,14 @@
             initialize();
        }
         function food_market_map(){
+            
             set_tipo('grocery_or_supermarket');
             initialize();
+            
+            carga_prod_precios();
        }
       
-
+      
        
     </script>
     
@@ -328,7 +331,7 @@
                                     </a> <!-- /.icon-item -->
                                 </li>
                                 <li class="col-md-4 col-sm-4">
-                                    <a href="#tab5" class="icon-item">
+                                    <a href="#tab5" onclick="carga_prod_precios()" class="icon-item">
                                         <i class="fa fa-leaf"></i>
                                     </a> <!-- /.icon-item -->
                                 </li>
@@ -340,7 +343,7 @@
                             </ul> <!-- /.tabs -->
                             
                             <div class="col-md-12 col-sm-12">
-                                <div class="toggle-content text-center" id="tab4">
+                            <div class="toggle-content text-center" id="tab4">
                                     <h4>Establecimientos y Supermercados </h4>
                             <div class="col-md-12">
                                 <div class="toggle-content  spacing">
@@ -349,21 +352,30 @@
                                     </div>
                                 </div>
                             </div> 
-                            <br>
-                             <div class="col-md-12">
+                                
+                                    <br><br>
+                            <div class="col-md-12">
                                 <div class="google-map">
                                     <div id="map-canvas-f" ></div> 
                                 </div> 
                             </div> 
                                 </div>
                                 
-                           
                                 <div class="toggle-content text-center" id="tab5">
                                     <h3>Ubicacion de Mejores Precios</h3>
+                                    <input type="hidden" id="coordLong" name="coordLong">
+                                    <input type="hidden" id="coordLat" name="coordLat">
                                      <div class="col-md-12"> 
-                                          <div class="google-map">
-                                            <div id="map-canvas-f" ></div> 
+                                         <div class="toggle-content  spacing">
+                                    <h3>Lugares mas cercanos</h3>
+                                     <div id="prod_notify">
+                                    </div>
+                                            </div>
+                                         
+                                         <div class="google-map">
+                                            <div id="map-canvas-fprod" ></div> 
                                          </div> 
+                                         
                                      </div>  
                                 </div>
                                 
@@ -583,6 +595,26 @@
                             },
                             success:  function (response) {
                                 $( "#notify_medicina" ).html(response);
+                            }
+                        });
+          
+                }
+                
+                 function carga_prod_precios()
+                {
+                    var parametros = {
+                        'lon' :document.getElementById('coordLong').value,
+                        'lat' : document.getElementById('coordLat').value
+                    };
+                     $.ajax({
+                            data:  parametros,
+                            url:   'prod_notificacion_responsive.php',
+                            type:  'post',
+                            beforeSend: function () {
+                                  $( "#prod_notify" ).html('<div><img src="images/loading.gif" width="70px" height="70px"/></div>');     
+                            },
+                            success:  function (response) {
+                                $( "#prod_notify" ).html(response);
                             }
                         });
           

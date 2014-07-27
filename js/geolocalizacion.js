@@ -167,6 +167,8 @@ function get_localizacion() {
     }
 }
 
+
+
 function mostrar_coordenadas(position) {
 
    
@@ -175,6 +177,8 @@ function mostrar_coordenadas(position) {
   var pyrmont = new google.maps.LatLng(latitud,longitud);
   
  
+document.getElementById('coordLong').value=longitud;   
+document.getElementById('coordLat').value=latitud;   
   switch(window.tipo)
     {
         case 'police':
